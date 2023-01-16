@@ -5,7 +5,7 @@
  *   GLOBAL VARIABLES
  ***********************/
 SemaphoreHandle_t xGuiSemaphore;
-lv_obj_t * lmeter_CO2;
+QueueHandle_t gui_refresh_queue;
 
 /************************
  *   STATIC VARIABLES
@@ -22,9 +22,13 @@ static lv_obj_t* preload;
 static lv_obj_t* wifi_mbox;
 static lv_style_t style_modal;
 static lv_obj_t *wifi_pass_textbox;
-
+static lv_obj_t *lmeter_CO2;
+static lv_obj_t *label_CO2;
 static gui_wifi_data_typ wifi_data;
-
+static lv_obj_t *temperature_textbox;
+static lv_obj_t *humidity_textbox;
+static lv_obj_t *lmeter_VOC;
+static lv_obj_t *label_VOC;
 /***********************************
  *          GUI Tasks 
  ***********************************/
@@ -32,9 +36,8 @@ static gui_wifi_data_typ wifi_data;
 
 // Main GUI Task
 
-void T02_user_interface_task(void *pvParameter)
+void T00_user_interface_task(void *pvParameter)
 {
-
     // Declare imag buffers
     lv_color_t* img_buffer1 = heap_caps_malloc(DISP_BUF_SIZE * sizeof(lv_color_t), MALLOC_CAP_DMA);
     lv_color_t* img_buffer2 = heap_caps_malloc(DISP_BUF_SIZE * sizeof(lv_color_t), MALLOC_CAP_DMA);
@@ -47,18 +50,20 @@ void T02_user_interface_task(void *pvParameter)
     // Create GUI Application
     gui_create_gui();
 
+    // Create refresher task
+    xTaskCreate(T02_02_refresh_task, "gui_refersh_task", 1024*2, NULL, 0, NULL);
+    
     //Main GUI task while loop
     while (1) {
     /* Delay 1 tick (assumes FreeRTOS tistatic void ck is 10ms */
         vTaskDelay(pdMS_TO_TICKS(10));
-
+        
         /* Try to take the semaphore, call lvgl related function on success */
         if (pdTRUE == xSemaphoreTake(xGuiSemaphore, portMAX_DELAY)) {
             lv_task_handler();
             xSemaphoreGive(xGuiSemaphore);
         }
     }
-
     free(img_buffer1);
     free(img_buffer2);
     vTaskDelete(NULL);
@@ -89,14 +94,61 @@ static void T02_01_wifi_scan_task(void *pvParameter)
     vTaskDelete(NULL);
 }
 
+// GUI Refresh Measurement indicators task //
+
+static void T02_02_refresh_task(void *pvParameter)
+{
+    while(1)
+    {
+        gui_measurement_packet received_value;
+        if (xQueueReceive(gui_refresh_queue, &received_value, portMAX_DELAY ) == pdPASS)
+		{
+            // co2 meter
+			lv_linemeter_set_value(lmeter_CO2, received_value.co2);
+            char co2_val_str[10];
+            sprintf(co2_val_str, "%d", received_value.co2);
+            strcat(co2_val_str, "\nppm");
+            lv_label_set_text(label_CO2, co2_val_str);
+
+            // temperautre meter
+            char temperature_str[20];
+            sprintf(temperature_str, "%.2f", received_value.temperature);
+            strcat(temperature_str, " °C");
+            
+            if (strcmp(temperature_str, lv_textarea_get_text(temperature_textbox)) != 0) {
+            lv_textarea_set_text(temperature_textbox, temperature_str); }
+
+            // humidity meter
+            char humidty_str[20];
+            sprintf(humidty_str, "%.2f", received_value.humidity);
+            strcat(humidty_str, " %RH");
+            if (strcmp(humidty_str, lv_textarea_get_text(humidity_textbox)) != 0) {
+            lv_textarea_set_text(humidity_textbox, humidty_str);}
+
+
+            // VOC meter
+            lv_linemeter_set_value(lmeter_VOC, received_value.voc);
+            char voc_val_str[10];
+            sprintf(voc_val_str, "%d", received_value.voc);
+            //strcat(voc_val_str, "\nppm");
+            lv_label_set_text(label_VOC, voc_val_str);
+
+
+		}
+    }
+    vTaskDelete(NULL);
+}
+
+
 /***********************************
  * GUI_INITIALIZE - ini LCD gui
  ***********************************/
 
 static void gui_initialize(lv_color_t *buf1, lv_color_t *buf2)
 {
-    //(void) pvParameter; ALI TO RABIMO?xTaskCreate(T02_01_wifi_scan_task, "wifi scan", 1024*4, NULL, 3, NULL);
     xGuiSemaphore = xSemaphoreCreateMutex();
+    //gui_refresh_queue = xQueueCreate(10, sizeof(int32_t));
+    gui_refresh_queue = xQueueCreate(10, sizeof(gui_measurement_packet));
 
     /* Initialize SPI or I2C bus used by the drivers */
     lv_init();
@@ -104,7 +156,6 @@ static void gui_initialize(lv_color_t *buf1, lv_color_t *buf2)
 
     static lv_disp_buf_t disp_buf;
     uint32_t size_in_px = DISP_BUF_SIZE;
-
     lv_disp_buf_init(&disp_buf, buf1, buf2, size_in_px);
     lv_disp_drv_t disp_drv;
     lv_disp_drv_init(&disp_drv);
@@ -133,7 +184,7 @@ static void gui_initialize(lv_color_t *buf1, lv_color_t *buf2)
  * GUI_CREATE_GUI - Create GUI application
  ********************************************/
 
-void gui_create_gui(void)
+void static gui_create_gui(void)
 {
     lv_disp_size_t disp_size = lv_disp_get_size_category(NULL);
 
@@ -146,7 +197,7 @@ void gui_create_gui(void)
 	//lv_obj_set_style_local_pad_bottom(tv, LV_TABVIEW_PART_TAB_BTN, LV_STATE_DEFAULT, 1);
 
     t1 = lv_tabview_add_tab(tv, "1");
-    t2 = lv_tabview_add_tab(tv, "2");
+    // t2 = lv_tabview_add_tab(tv, "2");
     t3 = lv_tabview_add_tab(tv, "Conf.");
     lv_style_init(&style_box);
     lv_style_set_value_align(&style_box, LV_STATE_DEFAULT, LV_ALIGN_OUT_TOP_LEFT);
@@ -155,7 +206,7 @@ void gui_create_gui(void)
 
     // Create Tabs
     Create_TAB1(t1);
-    Create_TAB2(t2);
+    //Create_TAB2(t2);
     Create_TAB3(t3);
 }
 
@@ -165,18 +216,31 @@ void gui_create_gui(void)
 
 static void Create_TAB1(lv_obj_t *tab_ptr)
 {
+    // CO2 Meter
     lmeter_CO2 = lv_linemeter_create(t1, NULL);
     lv_obj_set_drag_parent(lmeter_CO2, true);
-    //lv_linemeter_set_value(lmeter_CO2, 50);
-    //lv_obj_set_size(lmeter_CO2, meter_size, meter_size);
     lv_obj_set_size(lmeter_CO2, 140, 140);
     lv_obj_add_style(lmeter_CO2, LV_LINEMETER_PART_MAIN, &style_box);
     lv_obj_set_x(lmeter_CO2, +10);
     lv_obj_set_y(lmeter_CO2, +35);
     lv_obj_set_style_local_value_str(lmeter_CO2, LV_LINEMETER_PART_MAIN, LV_STATE_DEFAULT, "CO2:");
-    lv_obj_t * label_CO2 = lv_label_create(lmeter_CO2, NULL);
+    lv_linemeter_set_range(lmeter_CO2, 0, 5000);
+    label_CO2 = lv_label_create(lmeter_CO2, NULL);
     lv_obj_align(label_CO2, lmeter_CO2, LV_ALIGN_CENTER, 0, 0);
     lv_obj_set_style_local_text_font(label_CO2, LV_LABEL_PART_MAIN, LV_STATE_DEFAULT, lv_theme_get_font_title());
+
+    // Temperature & Humidity
+    temperature_textbox = lv_textarea_create(t1, NULL);
+    lv_obj_set_size(temperature_textbox, 120, 35);
+    lv_obj_align(temperature_textbox, NULL, LV_ALIGN_CENTER, 80, -25);
+    lv_textarea_set_cursor_hidden(temperature_textbox, true);
+    lv_textarea_set_one_line(temperature_textbox, true);
+
+    humidity_textbox = lv_textarea_create(t1, NULL);
+    lv_obj_set_size(humidity_textbox, 120, 35);
+    lv_obj_align(humidity_textbox, NULL, LV_ALIGN_CENTER, 80, +30);
+    lv_textarea_set_cursor_hidden(humidity_textbox, true);
+    lv_textarea_set_one_line(humidity_textbox, true);
 }
 
 /********************************************
@@ -186,7 +250,7 @@ static void Create_TAB1(lv_obj_t *tab_ptr)
 static void Create_TAB2(lv_obj_t *tab_ptr)
 {
     // CREATE Line Meter (VOC)
-    lv_obj_t * lmeter_VOC = lv_linemeter_create(t2, NULL);
+    lmeter_VOC = lv_linemeter_create(t2, NULL);
     lv_obj_set_drag_parent(lmeter_VOC, true);
     lv_linemeter_set_value(lmeter_VOC, 50);
     //lv_obj_set_size(lmeter_CO2, meter_size, meter_size);
@@ -194,8 +258,9 @@ static void Create_TAB2(lv_obj_t *tab_ptr)
     lv_obj_add_style(lmeter_VOC, LV_LINEMETER_PART_MAIN, &style_box);
     lv_obj_set_x(lmeter_VOC, +10);
     lv_obj_set_y(lmeter_VOC, +35);
+    lv_linemeter_set_range(lmeter_VOC, 0, 4096);
     lv_obj_set_style_local_value_str(lmeter_VOC, LV_LINEMETER_PART_MAIN, LV_STATE_DEFAULT, "VOC:");
-    lv_obj_t * label_VOC = lv_label_create(lmeter_VOC, NULL);
+    label_VOC = lv_label_create(lmeter_VOC, NULL);
     lv_obj_align(label_VOC, lmeter_VOC, LV_ALIGN_CENTER, 0, 0);
     lv_obj_set_style_local_text_font(label_VOC, LV_LABEL_PART_MAIN, LV_STATE_DEFAULT, lv_theme_get_font_title());
 
@@ -246,14 +311,6 @@ static void Create_TAB3(lv_obj_t *tab_ptr)
     lv_obj_set_event_cb(wifi_dropdown, wifi_connection_select_event_handler);
     lv_obj_set_hidden(wifi_dropdown, true);
 
-    // MQTT Settings/Status
-    /*
-    lv_obj_t * label_mqtt = lv_label_create(tab_ptr, NULL);
-    lv_label_set_text(label_mqtt, "MQTT Status:");
-    lv_obj_set_y(label_mqtt, +140);
-    lv_obj_set_x(label_mqtt, +10);
-    */
-
     /*Create a Preloader object*/
     preload = lv_spinner_create(tab_ptr, NULL);
     lv_obj_set_size(preload, 35, 35);
@@ -261,9 +318,7 @@ static void Create_TAB3(lv_obj_t *tab_ptr)
     lv_obj_set_style_local_line_width(preload, LV_SPINNER_PART_INDIC, LV_STATE_DEFAULT, 5);
     lv_obj_align(preload, switch_enable_wifi, LV_ALIGN_OUT_RIGHT_MID, +20, 0);
     lv_obj_set_hidden(preload, true); 
-
 }
-
 
 
 /********************************************
@@ -280,6 +335,7 @@ static void wifi_enable_switch_event_handler(lv_obj_t * obj, lv_event_t event)
            lv_obj_set_hidden(wifi_dropdown, false);  
         }
         else {
+            wifi_disconnect();
             lv_obj_set_hidden(wifi_dropdown, true);
         }
     }
@@ -331,9 +387,6 @@ void wifi_keyboard_event_handler(lv_obj_t * obj, lv_event_t event)
 
             //char temp_buf[100];
             lv_dropdown_get_selected_str(wifi_dropdown, wifi_data.ssid, sizeof(wifi_data.ssid));
-            //printf("pass test: %s \n",lv_textarea_get_text(wifi_pass_textbox));
-            //char* pass_tmp = lv_textarea_get_text(wifi_pass_textbox);
-            //strcpy(wifi_data.pass, pass_tmp);
             wifi_connect(wifi_data.ssid, wifi_data.pass);
 
             lv_obj_del(wifi_keyboard);

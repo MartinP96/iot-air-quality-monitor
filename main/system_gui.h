@@ -34,26 +34,44 @@ typedef struct {
     char pass[32];
 } gui_wifi_data_typ;
 
+typedef struct {
+    int32_t co2;
+    float temperature;
+    float humidity;
+    int32_t voc;
+    int32_t ozone;
+} gui_measurement_packet;
+
+typedef struct {
+    int sampling_time;
+} gui_system_settings;
+
+
 /************************
  *   GLOBAL VARIABLES
  ***********************/
-extern lv_obj_t * lmeter_CO2;
+extern QueueHandle_t gui_refresh_queue;
 
 /*********************
  *      FUNCTIONS
  *********************/
 
 // Global functions
-void T02_user_interface_task(void *pvParameter);
-static void T02_01_wifi_scan_task(void *pvParameter);
-void gui_create_gui(void);
+void T00_user_interface_task(void *pvParameter);
 
-// Sttic functions
+void gui_set_co2_meter_value(int32_t value,int32_t min, int32_t max);
+void gui_set_voc_meter_value(int value);
+void gui_set_ozone_meter_value(int value);
+
+// Static functions
 static void Create_TAB1(lv_obj_t *tab_ptr);
-static void Create_TAB2(lv_obj_t *tab_ptr);
+// static void Create_TAB2(lv_obj_t *tab_ptr);
 static void Create_TAB3(lv_obj_t *tab_ptr);
 static void gui_initialize(lv_color_t *buf1, lv_color_t *buf2);
 static void lv_tick_task(void *arg);
+void static gui_create_gui(void);
+static void T02_01_wifi_scan_task(void *pvParameter);
+static void T02_02_refresh_task(void *pvParameter);
 
 // Event functions
 static void wifi_enable_switch_event_handler(lv_obj_t * obj, lv_event_t event);

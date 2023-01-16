@@ -2,27 +2,21 @@
 
 
 QueueHandle_t q_wifi_status_queue;
+wifi_connection_status wifi_status;
+
+
+static esp_netif_t *sta_netif;
 
 void event_handler(void* arg, esp_event_base_t event_base,int32_t event_id, void* event_data)
 {
-    /*
-    if (event_base == WIFI_EVENT && event_id == WIFI_EVENT_STA_START) {
-        esp_wifi_connect();
-        printf("CONNECTED TO WIFI!");
-    } else if (event_base == WIFI_EVENT && event_id == WIFI_EVENT_STA_DISCONNECTED) {
-        esp_wifi_connect();
-        printf("CONNECTED TO WIFI!");
-    } else if (event_base == IP_EVENT && event_id == IP_EVENT_STA_GOT_IP) {
-        ip_event_got_ip_t* event = (ip_event_got_ip_t*) event_data;
-        ESP_LOGI(TAG_WIFI, "got ip:" IPSTR, IP2STR(&event->ip_info.ip));
-    }
-    */
-
     if (event_base == WIFI_EVENT && event_id == WIFI_EVENT_STA_CONNECTED) {
         printf("CONNECTED TO WIFI!");
+        //wifi_status.wifi_connected_status = true;
     } else if (event_base == WIFI_EVENT && event_id == WIFI_EVENT_STA_DISCONNECTED) {
-        printf("CONNECTED TO WIFI!");
+        printf("DISCONNECTED FROM WIFI!");
+        wifi_status.wifi_connected_status = false;
     } else if (event_base == IP_EVENT && event_id == IP_EVENT_STA_GOT_IP) {
+        wifi_status.wifi_connected_status = true;
         ip_event_got_ip_t* event = (ip_event_got_ip_t*) event_data;
         ESP_LOGI(TAG_WIFI, "got ip:" IPSTR, IP2STR(&event->ip_info.ip));
     }
@@ -49,6 +43,11 @@ void wifi_connect(char arg_ssid[], char arg_password[])
     ESP_ERROR_CHECK(esp_wifi_connect());
 }
 
+void wifi_disconnect(void)
+{
+    ESP_ERROR_CHECK(esp_wifi_disconnect());
+}
+
 
 void wifi_init(void)
 {
@@ -58,8 +57,12 @@ void wifi_init(void)
     wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
     ESP_ERROR_CHECK(esp_wifi_init(&cfg));
 
+    ESP_ERROR_CHECK(esp_event_handler_instance_register(WIFI_EVENT, ESP_EVENT_ANY_ID, &event_handler, NULL, NULL));
+    ESP_ERROR_CHECK(esp_event_handler_instance_register(IP_EVENT, IP_EVENT_STA_GOT_IP, &event_handler, NULL, NULL));
+
+
     // Initialize default station as network interface instance (esp-netif)
-    esp_netif_t *sta_netif = esp_netif_create_default_wifi_sta();
+    sta_netif = esp_netif_create_default_wifi_sta();
     assert(sta_netif);
 
     ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
@@ -67,7 +70,6 @@ void wifi_init(void)
 
     // Create wifi status queue
     q_wifi_status_queue = xQueueCreate(5, sizeof(long));
-
 
 }
 

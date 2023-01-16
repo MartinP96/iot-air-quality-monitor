@@ -2,6 +2,8 @@
 
 int g_FLAG = 0;
 QueueHandle_t queue;
+mqtt_connection_status mqtt_status;
+
 
 void log_error_if_nonzero(const char *message, int error_code)
 {
@@ -51,10 +53,11 @@ void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_t event
     switch ((esp_mqtt_event_id_t)event_id) {
     case MQTT_EVENT_CONNECTED:
         ESP_LOGI(TAG_MQTT, "MQTT_EVENT_CONNECTED");
-        msg_id =  esp_mqtt_client_subscribe(client, HEARTH_BEAT_TOPIC, 0);
+        mqtt_status.mqtt_connected_status = true;
         break;
     case MQTT_EVENT_DISCONNECTED:
         ESP_LOGI(TAG_MQTT, "MQTT_EVENT_DISCONNECTED");
+        mqtt_status.mqtt_connected_status = false;
         break;
     case MQTT_EVENT_SUBSCRIBED:
         ESP_LOGI(TAG_MQTT, "MQTT_EVENT_SUBSCRIBED, msg_id=%d", event->msg_id);
@@ -67,8 +70,8 @@ void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_t event
         break;
     case MQTT_EVENT_DATA:
         ESP_LOGI(TAG_MQTT, "MQTT_EVENT_DATA");
-        printf("TOPIC=%.*s\r\n", event->topic_len, event->topic);
-        printf("DATA=%.*s\r\n", event->data_len, event->data);
+        //printf("TOPIC=%.*s\r\n", event->topic_len, event->topic);
+        //printf("DATA=%.*s\r\n", event->data_len, event->data);
         /*
         char *destination;
         destination =  (char*) malloc(event->data_len);
@@ -117,4 +120,9 @@ esp_mqtt_client_handle_t mqtt_app_start(void)
     esp_mqtt_client_start(client);
 
     return client;
+}
+
+void mqtt_app_stop(esp_mqtt_client_handle_t client)
+{
+    esp_mqtt_client_stop(client);
 }

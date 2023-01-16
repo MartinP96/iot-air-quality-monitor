@@ -1,6 +1,10 @@
 #include "mhz19.h"
 
 
+/*****************************
+ *    STATIC VAIRABLES
+*****************************/
+
 static  const uint8_t CommandRead[MHZ19_PACKET_LENGTH] = {
     0xFF, 0x01, 0x86, 0x00, 0x00, 0x00, 0x00, 0x00, 0x79};
 static  const uint8_t CommandEnableAutoBaseCalibration[MHZ19_PACKET_LENGTH] = {
@@ -125,4 +129,3 @@ static bool mhz19_send_command(const uint8_t *arg_cmd)
     }
     return true;
 }
-

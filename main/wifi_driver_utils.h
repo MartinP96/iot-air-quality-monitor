@@ -11,6 +11,7 @@
 #include "nvs_flash.h"
 
 /* Set the SSID and Password via project configuration, or can set directly here */
+
 #define DEFAULT_SSID "IOT_Wifi"
 #define DEFAULT_PWD "12602315"
 #define DEFAULT_SCAN_METHOD WIFI_FAST_SCAN
@@ -19,16 +20,24 @@
 #define DEFAULT_AUTHMODE WIFI_AUTH_OPEN
 #define DEFAULT_SCAN_LIST_SIZE 10
 
+typedef struct {
+    bool wifi_connected_status;
+    char wifi_ssid[32];
+    char wifi_pass[32];
+    char wifi_ip[100];
+} wifi_connection_status;
 
+
+extern wifi_connection_status wifi_status;
 
 
 static const char *TAG_WIFI = "scan";
-
 static void print_auth_mode(int authmode);
 static void print_cipher_type(int pairwise_cipher, int group_cipher);
 void event_handler(void* arg, esp_event_base_t event_base,int32_t event_id, void* event_data);
 void wifi_connect(char arg_ssid[], char arg_password[]);
 int wifi_scan(wifi_ap_record_t *ap_info);
 void wifi_init(void);
+void wifi_disconnect(void);
 
 #endif
