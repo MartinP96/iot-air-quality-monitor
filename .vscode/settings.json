@@ -11,6 +11,8 @@
         "lvgl.h": "c",
         "freertos.h": "c",
         "esp_timer.h": "c",
-        "task.h": "c"
+        "task.h": "c",
+        "measurement_collection_task.h": "c",
+        "semphr.h": "c"
     }
 }
