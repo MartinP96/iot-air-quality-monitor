@@ -30,13 +30,13 @@
 #include "main_gui.h"
 #include "wifi_driver_utils.h"
 #include "mqtt_driver_utils.h"
-#include "mhz19.h"
-#include "DHT22.h"
-#include "cJSON.h"
+//#include "mhz19.h"
+//#include "DHT22.h"
+//#include "cJSON.h"
 
 //ADC TEST
-#include "driver/adc.h"
-#include "esp_adc_cal.h"
+//#include "driver/adc.h"
+//#include "esp_adc_cal.h"
 
 // MQTT Topic definitions
 #define SYS_TOPIC  "porenta/martin_room/air_quality/sys"
@@ -47,21 +47,23 @@
 
 
 // Sensors IO Pins
+/*
 #define MHZ19_TX_PIN 17
 #define MHZ19_RX_PIN 16
 #define DHT22_INPUT_PIN 32
+*/
 
 // Variables
 QueueHandle_t sys_measurement_queue;
 
 // Task definitions
 void T02_communication_task(void *param);
-void T01_measurement_task(void *param);
+//void T01_measurement_task(void *param);
 
 // Function definitions
-void get_measurements(gui_measurement_packet *data_packet);
+//void get_measurements_old(gui_measurement_packet *data_packet);
 
-static esp_adc_cal_characteristics_t adc1_chars;
+//static esp_adc_cal_characteristics_t adc1_chars;
 
 void app_main(void)
 {
@@ -75,8 +77,8 @@ void app_main(void)
 
     // Create tasks 
     xTaskCreatePinnedToCore(T00_user_interface_task, "gui_task", 1024*6, NULL, 0, NULL, 1);
-    xTaskCreate(T01_measurement_task, "measurement_task", 1024*4, NULL, 0, NULL);
-    xTaskCreate(T02_communication_task, "communication_task", 1024*2, &mqtt_client, 0, NULL);
+    //xTaskCreate(T01_measurement_task, "measurement_task", 1024*4, NULL, 0, NULL);
+    //xTaskCreate(T02_communication_task, "communication_task", 1024*2, &mqtt_client, 0, NULL);
 }
 
 // System task
@@ -143,6 +145,7 @@ void T02_communication_task(void *param)
 	vTaskDelete(NULL); // Brisemo task po koncu izvajanja
 }
 
+/*
 // Get Measurements Task 
 void T01_measurement_task(void *param)
 {
@@ -160,8 +163,8 @@ void T01_measurement_task(void *param)
 
     while(1)
     {
-        get_measurements(&data_packet);
-        xQueueSend(gui_refresh_queue, &data_packet, portMAX_DELAY);
+        get_measurements_old(&data_packet);
+        // xQueueSend(gui_refresh_queue, &data_packet, portMAX_DELAY);
         printf("temp: %f \n hum: %f \n", data_packet.temperature, data_packet.humidity);
 
         // Send data to mqtt publish task
@@ -191,7 +194,7 @@ void T01_measurement_task(void *param)
 
 
 // Helper functions
-void get_measurements(gui_measurement_packet *data_packet)
+void get_measurements_old(gui_measurement_packet *data_packet)
 {
         // CO2
         data_packet->co2 = (int32_t)mhz19_read_co2();
@@ -202,45 +205,4 @@ void get_measurements(gui_measurement_packet *data_packet)
         data_packet->temperature = getTemperature();
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+*/

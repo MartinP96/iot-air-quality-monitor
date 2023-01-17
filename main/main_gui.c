@@ -50,9 +50,10 @@ void T00_user_interface_task(void *pvParameter)
     // Create GUI Application
     gui_create_gui();
 
-    // Create refresher task
-    xTaskCreate(T02_02_refresh_task, "gui_refersh_task", 1024*2, NULL, 0, NULL);
-    
+    // Create sub tasks
+    //xTaskCreate(T02_02_refresh_task, "gui_refersh_task", 1024*2, NULL, 0, NULL);
+    xTaskCreate(T_measurement_task, "measurement_task", 1024*4, NULL, 1, NULL);
+
     //Main GUI task while loop
     while (1) {
     /* Delay 1 tick (assumes FreeRTOS tistatic void ck is 10ms */

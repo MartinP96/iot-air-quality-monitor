@@ -20,6 +20,7 @@
 #include "esp_timer.h"
 
 #include "wifi_driver_utils.h"
+#include "measurement_collection_task.h"
 
 /*********************
  *      DEFINES

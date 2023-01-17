@@ -31,6 +31,7 @@
  *      TYPE DEFS
  *********************/
 typedef struct {
+    int32_t index;
     int32_t co2;
     float temperature;
     float humidity;
@@ -47,7 +48,7 @@ typedef struct {
  *********************/
 
 void T_measurement_task(void *param);
-static void get_measurements(measurement_packet_st *data_packet);
-static void init_sensors(void);
+void get_measurements(measurement_packet_st *data_packet);
+void init_sensors(void);
 
 #endif
