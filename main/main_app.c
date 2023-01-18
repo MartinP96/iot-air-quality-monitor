@@ -38,13 +38,6 @@
 #define MEASUREMENTS_TOPIC "porenta/martin_room/air_quality/data/measurements"
 #define JSON_PACKET_SIZE 200
 
-
-// Variables
-QueueHandle_t sys_measurement_queue;
-
-// Task definitions
-void T02_communication_task(void *param);
-
 void app_main(void)
 {
     // Initialize wifi module
@@ -53,7 +46,6 @@ void app_main(void)
 
     // Ini mqtt module
     esp_mqtt_client_handle_t mqtt_client;
-    sys_measurement_queue = xQueueCreate(1, JSON_PACKET_SIZE);
 
     // Create tasks 
     xTaskCreatePinnedToCore(T00_user_interface_task, "gui_task", 1024*6, NULL, 0, NULL, 1);

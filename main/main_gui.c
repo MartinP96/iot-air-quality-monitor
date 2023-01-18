@@ -5,7 +5,6 @@
  *   GLOBAL VARIABLES
  ***********************/
 SemaphoreHandle_t xGuiSemaphore;
-QueueHandle_t gui_refresh_queue;
 
 /************************
  *   STATIC VARIABLES
@@ -70,7 +69,6 @@ void T00_user_interface_task(void *pvParameter)
 }
 
 // WiFi Scan Task //
-
 static void T02_01_wifi_scan_task(void *pvParameter)
 {
     // Scan for wifi access points
@@ -145,9 +143,7 @@ static void T02_02_refresh_task(void *pvParameter)
 static void gui_initialize(lv_color_t *buf1, lv_color_t *buf2)
 {
     xGuiSemaphore = xSemaphoreCreateMutex();
-    //gui_refresh_queue = xQueueCreate(10, sizeof(int32_t));
-    gui_refresh_queue = xQueueCreate(10, sizeof(gui_measurement_packet));
-
+    
     /* Initialize SPI or I2C bus used by the drivers */
     lv_init();
     lvgl_driver_init();

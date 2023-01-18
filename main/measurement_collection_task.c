@@ -44,7 +44,6 @@ void T_measurement_task(void *param)
 {
     measurement_packet_st data_packet;
 
-
     measurement_queue = xQueueCreate(10, sizeof(measurement_packet_st));
 
     data_packet.index = 0;

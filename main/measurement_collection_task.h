@@ -35,7 +35,6 @@ typedef struct {
     int32_t co2;
     float temperature;
     float humidity;
-
 } measurement_packet_st;
 
 
