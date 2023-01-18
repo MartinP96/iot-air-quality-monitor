@@ -15,6 +15,7 @@
         "measurement_collection_task.h": "c",
         "semphr.h": "c",
         "ets_sys.h": "c",
-        "dht22.h": "c"
+        "dht22.h": "c",
+        "string.h": "c"
     }
 }

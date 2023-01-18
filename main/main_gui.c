@@ -29,11 +29,10 @@ static lv_obj_t *temperature_textbox;
 static lv_obj_t *humidity_textbox;
 static lv_obj_t *lmeter_VOC;
 static lv_obj_t *label_VOC;
+
 /***********************************
  *          GUI Tasks 
  ***********************************/
-
-
 // Main GUI Task
 
 void T00_user_interface_task(void *pvParameter)
@@ -51,8 +50,8 @@ void T00_user_interface_task(void *pvParameter)
     gui_create_gui();
 
     // Create sub tasks
-    //xTaskCreate(T02_02_refresh_task, "gui_refersh_task", 1024*2, NULL, 0, NULL);
     xTaskCreate(T_measurement_task, "measurement_task", 1024*4, NULL, 1, NULL);
+    xTaskCreate(T02_02_refresh_task, "gui_refersh_task", 1024*2, NULL, 0, NULL);
 
     //Main GUI task while loop
     while (1) {
@@ -96,13 +95,12 @@ static void T02_01_wifi_scan_task(void *pvParameter)
 }
 
 // GUI Refresh Measurement indicators task //
-
 static void T02_02_refresh_task(void *pvParameter)
 {
     while(1)
     {
-        gui_measurement_packet received_value;
-        if (xQueueReceive(gui_refresh_queue, &received_value, portMAX_DELAY ) == pdPASS)
+        measurement_packet_st received_value;
+        if (xQueueReceive(measurement_queue, &received_value, portMAX_DELAY ) == pdPASS)
 		{
             // co2 meter
 			lv_linemeter_set_value(lmeter_CO2, received_value.co2);
@@ -128,12 +126,12 @@ static void T02_02_refresh_task(void *pvParameter)
 
 
             // VOC meter
+            /*
             lv_linemeter_set_value(lmeter_VOC, received_value.voc);
             char voc_val_str[10];
             sprintf(voc_val_str, "%d", received_value.voc);
             lv_label_set_text(label_VOC, voc_val_str);
-
-
+            */
 		}
     }
     vTaskDelete(NULL);

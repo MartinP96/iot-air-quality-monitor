@@ -1,5 +1,8 @@
 #include "measurement_collection_task.h"
 
+/* Global variables */
+QueueHandle_t measurement_queue;
+
 /**
  * Desc: Initialize used sensors
  * 
@@ -40,6 +43,10 @@ void get_measurements(measurement_packet_st *data_packet)
 void T_measurement_task(void *param)
 {
     measurement_packet_st data_packet;
+
+
+    measurement_queue = xQueueCreate(10, sizeof(measurement_packet_st));
+
     data_packet.index = 0;
     data_packet.co2 = 0;
     data_packet.temperature = 0;
@@ -50,7 +57,8 @@ void T_measurement_task(void *param)
     while(1)
     {   
         get_measurements(&data_packet);
-        printf("index: %d \n temp: %f \n hum: %f \n co2: %d \n", data_packet.index, data_packet.temperature, data_packet.humidity, data_packet.co2);
+        xQueueSend(measurement_queue, &data_packet, portMAX_DELAY);
+        printf("index: %d \n temp: %f \n hum: %f \n co2: %d \n", data_packet.index, data_packet.temperature, data_packet.humidity, data_packet.co2); 
         vTaskDelay(SAMPLING_TIME/ portTICK_PERIOD_MS);
     }
     vTaskDelete(NULL); // Brisemo task po koncu izvajanja

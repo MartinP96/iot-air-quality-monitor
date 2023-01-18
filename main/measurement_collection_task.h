@@ -42,6 +42,7 @@ typedef struct {
 /************************
  *   GLOBAL VARIABLES
  ***********************/
+extern QueueHandle_t measurement_queue;
 
 /*********************
  *      FUNCTIONS
