@@ -21,6 +21,7 @@
 
 #include "wifi_driver_utils.h"
 #include "measurement_collection_task.h"
+#include "mqtt_driver_utils.h"
 
 /*********************
  *      DEFINES
@@ -59,6 +60,7 @@ extern QueueHandle_t gui_refresh_queue;
 
 // Global functions
 void T00_user_interface_task(void *pvParameter);
+void T_mqtt_communication_task(void *pvParameter);
 
 void gui_set_co2_meter_value(int32_t value,int32_t min, int32_t max);
 void gui_set_voc_meter_value(int value);

@@ -86,7 +86,8 @@ void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_t event
     }
 }
 
-esp_mqtt_client_handle_t mqtt_app_start(void)
+
+esp_mqtt_client_handle_t mqtt_ini_client(void)
 {
     esp_mqtt_client_config_t mqtt_cfg = {
         .broker.address.uri = "mqtt://admin:admin@192.168.0.101:1883",
@@ -94,10 +95,15 @@ esp_mqtt_client_handle_t mqtt_app_start(void)
 
     esp_mqtt_client_handle_t client = esp_mqtt_client_init(&mqtt_cfg);
     esp_mqtt_client_register_event(client, ESP_EVENT_ANY_ID, mqtt_event_handler, NULL);
-    esp_mqtt_client_start(client);
-
     return client;
 }
+
+int mqtt_start_client(esp_mqtt_client_handle_t client) // TODO: Error handling
+{
+    esp_mqtt_client_start(client);
+    return 1;
+}
+
 
 void mqtt_app_stop(esp_mqtt_client_handle_t client)
 {

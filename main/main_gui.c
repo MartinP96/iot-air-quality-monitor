@@ -48,10 +48,12 @@ void T00_user_interface_task(void *pvParameter)
     // Create GUI Application
     gui_create_gui();
 
+
     // Create sub tasks
     xTaskCreate(T_measurement_task, "measurement_task", 1024*4, NULL, 1, NULL);
     xTaskCreate(T02_02_refresh_task, "gui_refersh_task", 1024*2, NULL, 0, NULL);
-
+    xTaskCreate(T_mqtt_communication_task, "communication_task", 1024*2, NULL, 0, NULL);
+    
     //Main GUI task while loop
     while (1) {
     /* Delay 1 tick (assumes FreeRTOS tistatic void ck is 10ms */
@@ -122,7 +124,6 @@ static void T02_02_refresh_task(void *pvParameter)
             if (strcmp(humidty_str, lv_textarea_get_text(humidity_textbox)) != 0) {
             lv_textarea_set_text(humidity_textbox, humidty_str);}
 
-
             // VOC meter
             /*
             lv_linemeter_set_value(lmeter_VOC, received_value.voc);
@@ -133,6 +134,64 @@ static void T02_02_refresh_task(void *pvParameter)
 		}
     }
     vTaskDelete(NULL);
+}
+
+// MQTT Communication task
+void T_mqtt_communication_task(void *pvParameter)
+{
+
+    esp_mqtt_client_handle_t mqtt_client;
+
+    unsigned long sys_time = 0;
+    unsigned long hearth_beat_time = 0;
+    unsigned long mqtt_hb_counter = 0;
+    char hb_str[10];
+
+    int state = 0;
+    char received_value[JSON_PACKET_SIZE];
+    memset(received_value, 0, sizeof(received_value));
+
+    mqtt_client = mqtt_ini_client();
+
+	while(1)
+	{
+        // Get system time
+        sys_time = esp_timer_get_time();
+        
+        // MQTT Control State Machine
+        switch(state)
+        {
+            // Ini state
+            case 0:
+                mqtt_hb_counter = 0;
+                if(wifi_status.wifi_connected_status == true) {
+                    mqtt_start_client(mqtt_client);
+                    state = 1;
+                }
+            break;
+            
+            // Start MQTT publish measurements task
+            case 1:
+                if (mqtt_status.mqtt_connected_status) {
+                    state = 2;
+                }
+            break;
+
+            // MQTT publish data
+            case 2:
+                // Publish hearthbeat
+                if ((sys_time - hearth_beat_time) > HEARTH_BEAT_PEARIOD_US)
+                {
+                    mqtt_hb_counter++;
+                    sprintf(hb_str, "%d", mqtt_hb_counter);
+                    esp_mqtt_client_publish(mqtt_client, HEARTH_BEAT_TOPIC, hb_str, 0, 1, 0);
+                    hearth_beat_time = sys_time;
+                }
+            break;
+        }
+        vTaskDelay(100/portTICK_PERIOD_MS);
+	}
+	vTaskDelete(NULL); // Brisemo task po koncu izvajanja
 }
 
 
