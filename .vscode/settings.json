@@ -16,6 +16,7 @@
         "semphr.h": "c",
         "ets_sys.h": "c",
         "dht22.h": "c",
-        "string.h": "c"
+        "string.h": "c",
+        "random": "c"
     }
 }

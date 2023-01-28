@@ -16,6 +16,8 @@
 // Custom includes
 #include "mhz19.h"
 #include "DHT22.h"
+#include "mqtt_driver_utils.h"
+#include "wifi_driver_utils.h"
 
 /*********************
  *      DEFINES
@@ -46,8 +48,8 @@ extern QueueHandle_t measurement_queue;
 /*********************
  *      FUNCTIONS
  *********************/
-
 void T_measurement_task(void *param);
+void T_mqtt_communication_task(void *pvParameter);
 void get_measurements(measurement_packet_st *data_packet);
 void init_sensors(void);
 
