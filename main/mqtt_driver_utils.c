@@ -104,6 +104,12 @@ int mqtt_start_client(esp_mqtt_client_handle_t client) // TODO: Error handling
     return 1;
 }
 
+int mqtt_stop_client(esp_mqtt_client_handle_t client) // TODO: Error handling
+{
+    esp_mqtt_client_stop(client);
+    return 1;
+}
+
 
 void mqtt_app_stop(esp_mqtt_client_handle_t client)
 {

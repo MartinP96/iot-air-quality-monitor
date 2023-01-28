@@ -18,6 +18,7 @@
 #include "DHT22.h"
 #include "mqtt_driver_utils.h"
 #include "wifi_driver_utils.h"
+#include "cJSON.h"
 
 /*********************
  *      DEFINES
