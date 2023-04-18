@@ -1,0 +1,35 @@
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/home/martin/.espressif/python_env/idf5.1_py3.10_env/lib/python3.10/site-packages/esptool/__main__.py", line 11, in <module>
+    esptool._main()
+  File "/home/martin/.espressif/python_env/idf5.1_py3.10_env/lib/python3.10/site-packages/esptool/__init__.py", line 1031, in _main
+    main()
+  File "/home/martin/.espressif/python_env/idf5.1_py3.10_env/lib/python3.10/site-packages/esptool/__init__.py", line 671, in main
+    esp = esp or get_default_connected_device(
+  File "/home/martin/.espressif/python_env/idf5.1_py3.10_env/lib/python3.10/site-packages/esptool/__init__.py", line 920, in get_default_connected_device
+    _esp.connect(before, connect_attempts)
+  File "/home/martin/.espressif/python_env/idf5.1_py3.10_env/lib/python3.10/site-packages/esptool/loader.py", line 632, in connect
+    last_error = self._connect_attempt(
+  File "/home/martin/.espressif/python_env/idf5.1_py3.10_env/lib/python3.10/site-packages/esptool/loader.py", line 556, in _connect_attempt
+    self.bootloader_reset(usb_jtag_serial, extra_delay)
+  File "/home/martin/.espressif/python_env/idf5.1_py3.10_env/lib/python3.10/site-packages/esptool/loader.py", line 537, in bootloader_reset
+    self._setDTR(False)  # IO0=HIGH, done
+  File "/home/martin/.espressif/python_env/idf5.1_py3.10_env/lib/python3.10/site-packages/esptool/loader.py", line 450, in _setDTR
+    self._port.setDTR(state)
+  File "/home/martin/.espressif/python_env/idf5.1_py3.10_env/lib/python3.10/site-packages/serial/serialutil.py", line 603, in setDTR
+    self.dtr = value
+  File "/home/martin/.espressif/python_env/idf5.1_py3.10_env/lib/python3.10/site-packages/serial/serialutil.py", line 473, in dtr
+    self._update_dtr_state()
+  File "/home/martin/.espressif/python_env/idf5.1_py3.10_env/lib/python3.10/site-packages/serial/serialposix.py", line 715, in _update_dtr_state
+    fcntl.ioctl(self.fd, TIOCMBIC, TIOCM_DTR_str)
+OSError: [Errno 5] Input/output error
+CMake Error at run_serial_tool.cmake:63 (message):
+  
+  /home/martin/.espressif/python_env/idf5.1_py3.10_env/bin/python;;/home/martin/esp/esp-idf/components/esptool_py/esptool/esptool.py;--chip;esp32
+  failed.
+
+
+

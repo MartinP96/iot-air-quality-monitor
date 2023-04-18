@@ -1,0 +1,358 @@
+[1/130] Performing build step for 'bootloader'
+[1/1] cd /home/martin/esp/projekti/iot-air-quality-monitor/build/bootloader/esp-idf/esptool_py && /home/martin/.espressif/python_env/idf5.1_py3.10_env/bin/python /home/martin/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/martin/esp/projekti/iot-air-quality-monitor/build/bootloader/bootloader.bin
+Bootloader binary size 0x6720 bytes. 0x8e0 bytes (8%) free.
+[2/128] Building C object esp-idf/esp_common/CMakeFiles/__idf_esp_common.dir/src/esp_err_to_name.c.obj
+[3/128] Building C object esp-idf/esp_phy/CMakeFiles/__idf_esp_phy.dir/src/phy_init.c.obj
+[4/128] Building C object esp-idf/esp_netif/CMakeFiles/__idf_esp_netif.dir/esp_netif_handlers.c.obj
+[5/128] Building C object esp-idf/esp_netif/CMakeFiles/__idf_esp_netif.dir/esp_netif_objects.c.obj
+[6/128] Building C object esp-idf/esp_netif/CMakeFiles/__idf_esp_netif.dir/esp_netif_defaults.c.obj
+[7/128] Building C object esp-idf/esp_netif/CMakeFiles/__idf_esp_netif.dir/lwip/netif/wlanif.c.obj
+[8/128] Building C object esp-idf/esp_netif/CMakeFiles/__idf_esp_netif.dir/lwip/esp_netif_lwip_defaults.c.obj
+[9/128] Building C object esp-idf/esp_netif/CMakeFiles/__idf_esp_netif.dir/lwip/esp_netif_lwip.c.obj
+[10/128] Building C object esp-idf/esp_netif/CMakeFiles/__idf_esp_netif.dir/lwip/netif/esp_pbuf_ref.c.obj
+[11/128] Building C object esp-idf/esp_netif/CMakeFiles/__idf_esp_netif.dir/lwip/netif/ethernetif.c.obj
+[12/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/port/os_xtensa.c.obj
+[13/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/common/dragonfly.c.obj
+[14/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/ap/sta_info.c.obj
+[15/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/common/sae.c.obj
+[16/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/port/eloop.c.obj
+[17/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/ap/ap_config.c.obj
+[18/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/ap/wpa_auth.c.obj
+[19/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/ap/ieee802_1x.c.obj
+[20/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/ap/wpa_auth_ie.c.obj
+[21/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/crypto/sha256-kdf.c.obj
+[22/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/crypto/aes-siv.c.obj
+[23/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/utils/bitfield.c.obj
+[24/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/eap_common/eap_wsc_common.c.obj
+[25/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/common/wpa_common.c.obj
+[26/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/crypto/sha1-tprf.c.obj
+[27/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/crypto/ccmp.c.obj
+[28/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/crypto/aes-gcm.c.obj
+[29/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/crypto/crypto_ops.c.obj
+[30/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/crypto/dh_group5.c.obj
+[31/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/crypto/dh_groups.c.obj
+[32/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/crypto/sha1-tlsprf.c.obj
+[33/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/crypto/ms_funcs.c.obj
+[34/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/crypto/sha256-tlsprf.c.obj
+[35/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/crypto/sha384-tlsprf.c.obj
+[36/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/crypto/sha1-prf.c.obj
+[37/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/crypto/sha256-prf.c.obj
+[38/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/crypto/sha384-prf.c.obj
+[39/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/crypto/md4-internal.c.obj
+[40/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/rsn_supp/wpa_ie.c.obj
+[41/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/common/ieee802_11_common.c.obj
+[42/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/rsn_supp/wpa.c.obj
+[43/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/eap_peer/chap.c.obj
+[44/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/eap_peer/eap_common.c.obj
+[45/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/eap_peer/eap.c.obj
+[46/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/eap_peer/eap_mschapv2.c.obj
+[47/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/eap_peer/eap_peap_common.c.obj
+[48/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/eap_peer/eap_peap.c.obj
+[49/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/eap_peer/eap_tls.c.obj
+[50/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/eap_peer/eap_tls_common.c.obj
+[51/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/eap_peer/mschapv2.c.obj
+[52/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/eap_peer/eap_ttls.c.obj
+[53/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/eap_peer/eap_fast_common.c.obj
+[54/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/eap_peer/eap_fast.c.obj
+[55/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/eap_peer/eap_fast_pac.c.obj
+[56/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/rsn_supp/pmksa_cache.c.obj
+[57/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/esp_supplicant/src/esp_wpa2.c.obj
+[58/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/wps/wps_enrollee.c.obj
+[59/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/utils/base64.c.obj
+[60/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/utils/common.c.obj
+[61/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/utils/ext_password.c.obj
+[62/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/utils/uuid.c.obj
+[63/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/utils/wpabuf.c.obj
+[64/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/utils/wpa_debug.c.obj
+[65/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/utils/json.c.obj
+[66/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/wps/wps.c.obj
+[67/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/wps/wps_attr_build.c.obj
+[68/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/wps/wps_attr_parse.c.obj
+[69/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/wps/wps_attr_process.c.obj
+[70/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/wps/wps_common.c.obj
+[71/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/wps/wps_dev_attr.c.obj
+[72/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/crypto/rc4.c.obj
+[73/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/crypto/des-internal.c.obj
+[74/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/esp_supplicant/src/esp_wpas_glue.c.obj
+[75/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/esp_supplicant/src/esp_wpa_main.c.obj
+[76/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/esp_supplicant/src/esp_common.c.obj
+[77/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/esp_supplicant/src/esp_wpa3.c.obj
+[78/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/esp_supplicant/src/esp_owe.c.obj
+[79/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/esp_supplicant/src/esp_wps.c.obj
+[80/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/esp_supplicant/src/esp_hostap.c.obj
+[81/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/esp_supplicant/src/crypto/tls_mbedtls.c.obj
+[82/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/esp_supplicant/src/crypto/crypto_mbedtls.c.obj
+[83/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/esp_supplicant/src/crypto/crypto_mbedtls-bignum.c.obj
+[84/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/esp_supplicant/src/crypto/crypto_mbedtls-rsa.c.obj
+[85/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/crypto/aes-omac1.c.obj
+[86/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/crypto/aes-wrap.c.obj
+[87/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/esp_supplicant/src/crypto/crypto_mbedtls-ec.c.obj
+[88/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/crypto/aes-unwrap.c.obj
+[89/128] Building C object esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/crypto/aes-ccm.c.obj
+[90/128] Building C object esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/src/smartconfig.c.obj
+[91/128] Building C object esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/src/smartconfig_ack.c.obj
+[92/128] Building C object esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/src/wifi_netif.c.obj
+[93/128] Building C object esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/src/wifi_init.c.obj
+[94/128] Building C object esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/src/wifi_default_ap.c.obj
+[95/128] Building C object esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/src/wifi_default.c.obj
+[96/128] Building C object esp-idf/esp_eth/CMakeFiles/__idf_esp_eth.dir/src/esp_eth_netif_glue.c.obj
+[97/128] Building C object esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/esp32/esp_adapter.c.obj
+[98/128] Linking C static library esp-idf/esp_eth/libesp_eth.a
+[99/128] Linking C static library esp-idf/esp_wifi/libesp_wifi.a
+[100/128] Linking C static library esp-idf/wpa_supplicant/libwpa_supplicant.a
+[101/128] Linking C static library esp-idf/esp_netif/libesp_netif.a
+[102/128] Linking C static library esp-idf/esp_phy/libesp_phy.a
+[103/128] Linking C static library esp-idf/esp_common/libesp_common.a
+[104/128] Building C object esp-idf/esp_local_ctrl/CMakeFiles/__idf_esp_local_ctrl.dir/src/esp_local_ctrl_transport_httpd.c.obj
+[105/128] Building C object esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/src/handlers.c.obj
+[106/128] Linking C static library esp-idf/esp_local_ctrl/libesp_local_ctrl.a
+[107/128] Building C object esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/src/wifi_scan.c.obj
+[108/128] Building C object esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/src/scheme_console.c.obj
+[109/128] Building C object esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/src/scheme_softap.c.obj
+[110/128] Building C object esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/src/manager.c.obj
+[111/128] Linking C static library esp-idf/wifi_provisioning/libwifi_provisioning.a
+[112/128] Building C object esp-idf/protocol_examples_common/CMakeFiles/__idf_protocol_examples_common.dir/stdin_out.c.obj
+[113/128] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/main_app.c.obj
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_app.c: In function 'app_main':
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_app.c:36:15: warning: unused variable 'ret' [-Wunused-variable]
+   36 |     esp_err_t ret = nvs_flash_init();
+      |               ^~~
+In file included from /home/martin/esp/projekti/iot-air-quality-monitor/main/measurement_collection.h:17,
+                 from /home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:22,
+                 from /home/martin/esp/projekti/iot-air-quality-monitor/main/main_app.c:30:
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_app.c: At top level:
+/home/martin/esp/projekti/iot-air-quality-monitor/main/mhz19.h:32:13: warning: 'mhz19_send_command' declared 'static' but never defined [-Wunused-function]
+   32 | static bool mhz19_send_command(const uint8_t *arg_cmd);
+      |             ^~~~~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/mhz19.h:33:16: warning: 'mhz19_calculate_checksum' declared 'static' but never defined [-Wunused-function]
+   33 | static uint8_t mhz19_calculate_checksum(const uint8_t* packet);
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/martin/esp/projekti/iot-air-quality-monitor/main/measurement_collection.h:20,
+                 from /home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:22,
+                 from /home/martin/esp/projekti/iot-air-quality-monitor/main/main_app.c:30:
+/home/martin/esp/projekti/iot-air-quality-monitor/main/wifi_driver_utils.h:35:13: warning: 'print_auth_mode' declared 'static' but never defined [-Wunused-function]
+   35 | static void print_auth_mode(int authmode);
+      |             ^~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/wifi_driver_utils.h:36:13: warning: 'print_cipher_type' declared 'static' but never defined [-Wunused-function]
+   36 | static void print_cipher_type(int pairwise_cipher, int group_cipher);
+      |             ^~~~~~~~~~~~~~~~~
+In file included from /home/martin/esp/projekti/iot-air-quality-monitor/main/main_app.c:30:
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:66:13: warning: 'Create_TAB1' declared 'static' but never defined [-Wunused-function]
+   66 | static void Create_TAB1(lv_obj_t *tab_ptr);
+      |             ^~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:68:13: warning: 'Create_TAB3' declared 'static' but never defined [-Wunused-function]
+   68 | static void Create_TAB3(lv_obj_t *tab_ptr);
+      |             ^~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:69:13: warning: 'gui_initialize' declared 'static' but never defined [-Wunused-function]
+   69 | static void gui_initialize(lv_color_t *buf1, lv_color_t *buf2);
+      |             ^~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:70:13: warning: 'lv_tick_task' declared 'static' but never defined [-Wunused-function]
+   70 | static void lv_tick_task(void *arg);
+      |             ^~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:71:13: warning: 'gui_create_gui' declared 'static' but never defined [-Wunused-function]
+   71 | void static gui_create_gui(void);
+      |             ^~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:72:13: warning: 'T02_01_wifi_scan_task' declared 'static' but never defined [-Wunused-function]
+   72 | static void T02_01_wifi_scan_task(void *pvParameter);
+      |             ^~~~~~~~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:73:13: warning: 'T_refresh_task' declared 'static' but never defined [-Wunused-function]
+   73 | static void T_refresh_task(void *pvParameter);
+      |             ^~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:76:13: warning: 'wifi_enable_switch_event_handler' declared 'static' but never defined [-Wunused-function]
+   76 | static void wifi_enable_switch_event_handler(lv_obj_t * obj, lv_event_t event);
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:77:13: warning: 'wifi_connection_select_event_handler' declared 'static' but never defined [-Wunused-function]
+   77 | static void wifi_connection_select_event_handler(lv_obj_t * obj_dropdown, lv_event_t event);
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:78:13: warning: 'wifi_keyboard_event_handler' declared 'static' but never defined [-Wunused-function]
+   78 | static void wifi_keyboard_event_handler(lv_obj_t * obj, lv_event_t event);
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/martin/esp/projekti/iot-air-quality-monitor/main/measurement_collection.h:20,
+                 from /home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:22,
+                 from /home/martin/esp/projekti/iot-air-quality-monitor/main/main_app.c:30:
+/home/martin/esp/projekti/iot-air-quality-monitor/main/wifi_driver_utils.h:34:20: warning: 'TAG_WIFI' defined but not used [-Wunused-variable]
+   34 | static const char *TAG_WIFI = "scan";
+      |                    ^~~~~~~~
+[114/128] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/measurement_collection.c.obj
+/home/martin/esp/projekti/iot-air-quality-monitor/main/measurement_collection.c: In function 'get_measurements':
+/home/martin/esp/projekti/iot-air-quality-monitor/main/measurement_collection.c:36:9: warning: unused variable 'ret' [-Wunused-variable]
+   36 |     int ret = readDHT();
+      |         ^~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/measurement_collection.c: In function 'T_mqtt_communication_task':
+/home/martin/esp/projekti/iot-air-quality-monitor/main/measurement_collection.c:150:51: warning: unused variable 'humidity' [-Wunused-variable]
+  150 |     cJSON *json_packet, *timestamp, *co2, *temp, *humidity;
+      |                                                   ^~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/measurement_collection.c:150:44: warning: unused variable 'temp' [-Wunused-variable]
+  150 |     cJSON *json_packet, *timestamp, *co2, *temp, *humidity;
+      |                                            ^~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/measurement_collection.c:150:38: warning: unused variable 'co2' [-Wunused-variable]
+  150 |     cJSON *json_packet, *timestamp, *co2, *temp, *humidity;
+      |                                      ^~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/measurement_collection.c:150:26: warning: unused variable 'timestamp' [-Wunused-variable]
+  150 |     cJSON *json_packet, *timestamp, *co2, *temp, *humidity;
+      |                          ^~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/measurement_collection.c:150:12: warning: unused variable 'json_packet' [-Wunused-variable]
+  150 |     cJSON *json_packet, *timestamp, *co2, *temp, *humidity;
+      |            ^~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/measurement_collection.c:149:11: warning: unused variable 'json_packet_str' [-Wunused-variable]
+  149 |     char *json_packet_str;
+      |           ^~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/measurement_collection.c:145:27: warning: unused variable 'received_value' [-Wunused-variable]
+  145 |     measurement_packet_st received_value;
+      |                           ^~~~~~~~~~~~~~
+In file included from /home/martin/esp/projekti/iot-air-quality-monitor/main/measurement_collection.h:17,
+                 from /home/martin/esp/projekti/iot-air-quality-monitor/main/measurement_collection.c:1:
+/home/martin/esp/projekti/iot-air-quality-monitor/main/measurement_collection.c: At top level:
+/home/martin/esp/projekti/iot-air-quality-monitor/main/mhz19.h:32:13: warning: 'mhz19_send_command' declared 'static' but never defined [-Wunused-function]
+   32 | static bool mhz19_send_command(const uint8_t *arg_cmd);
+      |             ^~~~~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/mhz19.h:33:16: warning: 'mhz19_calculate_checksum' declared 'static' but never defined [-Wunused-function]
+   33 | static uint8_t mhz19_calculate_checksum(const uint8_t* packet);
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/martin/esp/projekti/iot-air-quality-monitor/main/measurement_collection.h:20,
+                 from /home/martin/esp/projekti/iot-air-quality-monitor/main/measurement_collection.c:1:
+/home/martin/esp/projekti/iot-air-quality-monitor/main/wifi_driver_utils.h:35:13: warning: 'print_auth_mode' declared 'static' but never defined [-Wunused-function]
+   35 | static void print_auth_mode(int authmode);
+      |             ^~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/wifi_driver_utils.h:36:13: warning: 'print_cipher_type' declared 'static' but never defined [-Wunused-function]
+   36 | static void print_cipher_type(int pairwise_cipher, int group_cipher);
+      |             ^~~~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/wifi_driver_utils.h:34:20: warning: 'TAG_WIFI' defined but not used [-Wunused-variable]
+   34 | static const char *TAG_WIFI = "scan";
+      |                    ^~~~~~~~
+[115/128] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/wifi_driver_utils.c.obj
+[116/128] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/mhz19.c.obj
+/home/martin/esp/projekti/iot-air-quality-monitor/main/mhz19.c:19:22: warning: 'uart_queue' defined but not used [-Wunused-variable]
+   19 | QueueHandle_t static uart_queue;
+      |                      ^~~~~~~~~~
+[117/128] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/main_gui.c.obj
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.c: In function 'T00_user_interface_task':
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.c:59:27: warning: unused variable 'received_value' [-Wunused-variable]
+   59 |     measurement_packet_st received_value;
+      |                           ^~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.c: In function 'gui_create_gui':
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.c:186:20: warning: unused variable 'disp_size' [-Wunused-variable]
+  186 |     lv_disp_size_t disp_size = lv_disp_get_size_category(NULL);
+      |                    ^~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.c: In function 'Create_TAB3':
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.c:297:20: warning: unused variable 'disp_size' [-Wunused-variable]
+  297 |     lv_disp_size_t disp_size = lv_disp_get_size_category(NULL);
+      |                    ^~~~~~~~~
+In file included from /home/martin/esp/projekti/iot-air-quality-monitor/main/measurement_collection.h:17,
+                 from /home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:22,
+                 from /home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.c:1:
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.c: At top level:
+/home/martin/esp/projekti/iot-air-quality-monitor/main/mhz19.h:32:13: warning: 'mhz19_send_command' declared 'static' but never defined [-Wunused-function]
+   32 | static bool mhz19_send_command(const uint8_t *arg_cmd);
+      |             ^~~~~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/mhz19.h:33:16: warning: 'mhz19_calculate_checksum' declared 'static' but never defined [-Wunused-function]
+   33 | static uint8_t mhz19_calculate_checksum(const uint8_t* packet);
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/martin/esp/projekti/iot-air-quality-monitor/main/measurement_collection.h:20,
+                 from /home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:22,
+                 from /home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.c:1:
+/home/martin/esp/projekti/iot-air-quality-monitor/main/wifi_driver_utils.h:35:13: warning: 'print_auth_mode' declared 'static' but never defined [-Wunused-function]
+   35 | static void print_auth_mode(int authmode);
+      |             ^~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/wifi_driver_utils.h:36:13: warning: 'print_cipher_type' declared 'static' but never defined [-Wunused-function]
+   36 | static void print_cipher_type(int pairwise_cipher, int group_cipher);
+      |             ^~~~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.c:247:13: warning: 'Create_TAB2' defined but not used [-Wunused-function]
+  247 | static void Create_TAB2(lv_obj_t *tab_ptr)
+      |             ^~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.c:33:18: warning: 'sampling_time_text' defined but not used [-Wunused-variable]
+   33 | static lv_obj_t* sampling_time_text;
+      |                  ^~~~~~~~~~~~~~~~~~
+[118/128] Building C object esp-idf/protocol_examples_common/CMakeFiles/__idf_protocol_examples_common.dir/addr_from_stdin.c.obj
+[119/128] Building C object esp-idf/protocol_examples_common/CMakeFiles/__idf_protocol_examples_common.dir/connect.c.obj
+[120/128] Building C object esp-idf/protocol_examples_common/CMakeFiles/__idf_protocol_examples_common.dir/wifi_connect.c.obj
+[121/128] Building C object esp-idf/protocol_examples_common/CMakeFiles/__idf_protocol_examples_common.dir/console_cmd.c.obj
+[122/128] Linking C static library esp-idf/protocol_examples_common/libprotocol_examples_common.a
+[123/128] Linking C static library esp-idf/main/libmain.a
+[124/128] Generating ld/sections.ld
+[125/128] Linking CXX executable mqtt_tcp.elf
+[126/128] Generating binary image from built executable
+esptool.py v4.5.dev0
+Creating esp32 image...
+Merged 25 ELF sections
+Successfully created esp32 image.
+Generated /home/martin/esp/projekti/iot-air-quality-monitor/build/mqtt_tcp.bin
+[127/128] cd /home/martin/esp/projekti/iot-air-quality-monitor/build/esp-idf/esptool_py && /home/martin/.espressif/python_env/idf5.1_py3.10_env/bin/python /home/martin/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/martin/esp/projekti/iot-air-quality-monitor/build/partition_table/partition-table.bin /home/martin/esp/projekti/iot-air-quality-monitor/build/mqtt_tcp.bin
+mqtt_tcp.bin binary size 0x113ea0 bytes. Smallest app partition is 0x177000 bytes. 0x63160 bytes (26%) free.
+[127/128] cd /home/martin/esp/esp-idf/components/esptool_py && /usr/bin/cmake -D IDF_PATH=/home/martin/esp/esp-idf -D "SERIAL_TOOL=/home/martin/.espressif/python_env/idf5.1_py3.10_env/bin/python;;/home/martin/esp/esp-idf/components/esptool_py/esptool/esptool.py;--chip;esp32" -D "SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args" -D WORKING_DIRECTORY=/home/martin/esp/projekti/iot-air-quality-monitor/build -P /home/martin/esp/esp-idf/components/esptool_py/run_serial_tool.cmake
+esptool esp32 -p /dev/ttyUSB0 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 40m --flash_size 2MB 0x1000 bootloader/bootloader.bin 0x10000 mqtt_tcp.bin 0x8000 partition_table/partition-table.bin
+esptool.py v4.5.dev0
+Serial port /dev/ttyUSB0
+Connecting..............
+Chip is ESP32-D0WDQ6 (revision v1.0)
+Features: WiFi, BT, Dual Core, 240MHz, VRef calibration in efuse, Coding Scheme None
+Crystal is 40MHz
+MAC: 24:0a:c4:59:6d:74
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00001000 to 0x00007fff...
+Flash will be erased from 0x00010000 to 0x00123fff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+Compressed 26400 bytes to 16475...
+Writing at 0x00001000... (50 %)
+Writing at 0x000076ab... (100 %)
+Wrote 26400 bytes (16475 compressed) at 0x00001000 in 1.5 seconds (effective 139.1 kbit/s)...
+Hash of data verified.
+Compressed 1130144 bytes to 714216...
+Writing at 0x00010000... (2 %)
+Writing at 0x00019334... (4 %)
+Writing at 0x00025ee8... (6 %)
+Writing at 0x0002b6c3... (9 %)
+Writing at 0x00032810... (11 %)
+Writing at 0x0003ec30... (13 %)
+Writing at 0x00045384... (15 %)
+Writing at 0x0004b33b... (18 %)
+Writing at 0x000510ea... (20 %)
+Writing at 0x000583c4... (22 %)
+Writing at 0x0005e432... (25 %)
+Writing at 0x00064105... (27 %)
+Writing at 0x0006a189... (29 %)
+Writing at 0x00070483... (31 %)
+Writing at 0x00076237... (34 %)
+Writing at 0x0007c16c... (36 %)
+Writing at 0x00081b26... (38 %)
+Writing at 0x0008756c... (40 %)
+Writing at 0x0008db6f... (43 %)
+Writing at 0x0009367f... (45 %)
+Writing at 0x00098f3f... (47 %)
+Writing at 0x0009e276... (50 %)
+Writing at 0x000a382d... (52 %)
+Writing at 0x000a8cbc... (54 %)
+Writing at 0x000ae1b0... (56 %)
+Writing at 0x000b3937... (59 %)
+Writing at 0x000b921b... (61 %)
+Writing at 0x000bf125... (63 %)
+Writing at 0x000c4801... (65 %)
+Writing at 0x000c9fb9... (68 %)
+Writing at 0x000cf6fc... (70 %)
+Writing at 0x000d5133... (72 %)
+Writing at 0x000da8a2... (75 %)
+Writing at 0x000e03f8... (77 %)
+Writing at 0x000e5f0d... (79 %)
+Writing at 0x000ec280... (81 %)
+Writing at 0x000f45c6... (84 %)
+Writing at 0x000fd07d... (86 %)
+Writing at 0x00103525... (88 %)
+Writing at 0x00109de7... (90 %)
+Writing at 0x0010fe21... (93 %)
+Writing at 0x0011580f... (95 %)
+Writing at 0x0011b40b... (97 %)
+Writing at 0x0012097d... (100 %)
+Wrote 1130144 bytes (714216 compressed) at 0x00010000 in 43.4 seconds (effective 208.5 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 105...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (105 compressed) at 0x00008000 in 0.1 seconds (effective 300.5 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...

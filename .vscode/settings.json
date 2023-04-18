@@ -1,0 +1,23 @@
+{
+    "files.associations": {
+        "stdio.h": "c",
+        "wifi_driver_utils.h": "c",
+        "system_gui.h": "c",
+        "stddef.h": "c",
+        "lvgl_helpers.h": "c",
+        "mqtt_driver_utils.h": "c",
+        "main_gui.h": "c",
+        "mhz19.h": "c",
+        "lvgl.h": "c",
+        "freertos.h": "c",
+        "esp_timer.h": "c",
+        "task.h": "c",
+        "measurement_collection_task.h": "c",
+        "semphr.h": "c",
+        "ets_sys.h": "c",
+        "dht22.h": "c",
+        "string.h": "c",
+        "random": "c"
+    },
+    "idf.adapterTargetName": "esp32"
+}

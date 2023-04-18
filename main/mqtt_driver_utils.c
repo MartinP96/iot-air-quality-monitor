@@ -1,9 +1,7 @@
 #include "mqtt_driver_utils.h"
 
-int g_FLAG = 0;
 QueueHandle_t queue;
 mqtt_connection_status mqtt_status;
-
 
 void log_error_if_nonzero(const char *message, int error_code)
 {
@@ -70,28 +68,12 @@ void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_t event
         break;
     case MQTT_EVENT_DATA:
         ESP_LOGI(TAG_MQTT, "MQTT_EVENT_DATA");
-        //printf("TOPIC=%.*s\r\n", event->topic_len, event->topic);
-        //printf("DATA=%.*s\r\n", event->data_len, event->data);
-        /*
-        char *destination;
-        destination =  (char*) malloc(event->data_len);
-        substring(destination, event->data, 0, event->data_len);
-        printf("%s\n", destination);
-        long test_data = 0;
-        if (strcmp(destination, "ON") == 0)
-        {
-            printf("STATUS 1\n");
-            test_data = 1;
-            xQueueSend(queue, &test_data,portMAX_DELAY);
-        }
-        else if (strcmp(destination, "OFF") == 0)
-        {
-            printf("STATUS 0\n");
-            test_data = 0;
-            xQueueSend(queue, &test_data,portMAX_DELAY);
-        }
-        free(destination);
-        */
+        esp_mqtt_event_t tmp;
+        tmp.data_len = event->data_len;
+        tmp.data = event->data;
+        tmp.topic = event->topic;
+        tmp.topic_len = event->topic_len;
+        xQueueSend(queue, &tmp, portMAX_DELAY);
         break;
     case MQTT_EVENT_ERROR:
         ESP_LOGI(TAG_MQTT, "MQTT_EVENT_ERROR");
@@ -108,18 +90,30 @@ void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_t event
     }
 }
 
-esp_mqtt_client_handle_t mqtt_app_start(void)
+
+esp_mqtt_client_handle_t mqtt_ini_client(void)
 {
     esp_mqtt_client_config_t mqtt_cfg = {
         .broker.address.uri = "mqtt://admin:admin@192.168.0.101:1883",
     };
 
     esp_mqtt_client_handle_t client = esp_mqtt_client_init(&mqtt_cfg);
-    /* The last argument may be used to pass data to the event handler, in this example mqtt_event_handler */
     esp_mqtt_client_register_event(client, ESP_EVENT_ANY_ID, mqtt_event_handler, NULL);
-    esp_mqtt_client_start(client);
+    queue = xQueueCreate(50, sizeof(esp_mqtt_event_t));
 
     return client;
+}
+
+int mqtt_start_client(esp_mqtt_client_handle_t client) // TODO: Error handling
+{
+    esp_mqtt_client_start(client);
+    return 1;
+}
+
+int mqtt_stop_client(esp_mqtt_client_handle_t client) // TODO: Error handling
+{
+    esp_mqtt_client_stop(client);
+    return 1;
 }
 
 void mqtt_app_stop(esp_mqtt_client_handle_t client)

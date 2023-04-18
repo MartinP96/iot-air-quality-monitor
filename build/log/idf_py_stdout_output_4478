@@ -1,0 +1,3 @@
+[1/5] cd /home/martin/esp/projekti/iot-air-quality-monitor/build/esp-idf/esptool_py && /home/martin/.espressif/python_env/idf5.1_py3.10_env/bin/python /home/martin/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/martin/esp/projekti/iot-air-quality-monitor/build/partition_table/partition-table.bin /home/martin/esp/projekti/iot-air-quality-monitor/build/mqtt_tcp.bin
+mqtt_tcp.bin binary size 0x10c310 bytes. Smallest app partition is 0x177000 bytes. 0x6acf0 bytes (28%) free.
+ninja: build stopped: interrupted by user.

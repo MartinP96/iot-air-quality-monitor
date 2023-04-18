@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+/home/martin/esp/projekti/iot-air-quality-monitor/cmake-build-debug/CMakeFiles/bootloader
+/home/martin/esp/projekti/iot-air-quality-monitor/cmake-build-debug/CMakeFiles/bootloader.rule
+/home/martin/esp/projekti/iot-air-quality-monitor/cmake-build-debug/CMakeFiles/bootloader-complete.rule
+/home/martin/esp/projekti/iot-air-quality-monitor/cmake-build-debug/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+/home/martin/esp/projekti/iot-air-quality-monitor/cmake-build-debug/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/home/martin/esp/projekti/iot-air-quality-monitor/cmake-build-debug/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/home/martin/esp/projekti/iot-air-quality-monitor/cmake-build-debug/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/home/martin/esp/projekti/iot-air-quality-monitor/cmake-build-debug/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/home/martin/esp/projekti/iot-air-quality-monitor/cmake-build-debug/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/home/martin/esp/projekti/iot-air-quality-monitor/cmake-build-debug/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule

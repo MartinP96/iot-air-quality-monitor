@@ -1,0 +1,120 @@
+[1/11] Performing build step for 'bootloader'
+[1/1] cd /home/martin/esp/projekti/iot-air-quality-monitor/build/bootloader/esp-idf/esptool_py && /home/martin/.espressif/python_env/idf5.1_py3.10_env/bin/python /home/martin/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/martin/esp/projekti/iot-air-quality-monitor/build/bootloader/bootloader.bin
+Bootloader binary size 0x6720 bytes. 0x8e0 bytes (8%) free.
+[2/9] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/mqtt_driver_utils.c.obj
+/home/martin/esp/projekti/iot-air-quality-monitor/main/mqtt_driver_utils.c: In function 'mqtt_event_handler':
+/home/martin/esp/projekti/iot-air-quality-monitor/main/mqtt_driver_utils.c:52:9: warning: unused variable 'msg_id' [-Wunused-variable]
+   52 |     int msg_id;
+      |         ^~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/mqtt_driver_utils.c:51:30: warning: unused variable 'client' [-Wunused-variable]
+   51 |     esp_mqtt_client_handle_t client = event->client;
+      |                              ^~~~~~
+[3/9] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/main_app.c.obj
+FAILED: esp-idf/main/CMakeFiles/__idf_main.dir/main_app.c.obj 
+/home/martin/.espressif/tools/xtensa-esp32-elf/esp-2022r1-11.2.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc -DESP_PLATFORM -DIDF_VER=\"v5.1-dev-2889-gdb9586c53f-dirty\" -DLV_ATTRIBUTE_FAST_MEM=IRAM_ATTR -DLV_CONF_INCLUDE_SIMPLE -DLV_LVGL_H_INCLUDE_SIMPLE -DMBEDTLS_CONFIG_FILE=\"mbedtls/esp_config.h\" -DUNITY_INCLUDE_CONFIG_H -D_GNU_SOURCE -D_POSIX_READER_WRITER_LOCKS -I/home/martin/esp/projekti/iot-air-quality-monitor/build/config -I/home/martin/esp/projekti/iot-air-quality-monitor/main -I/home/martin/esp/esp-idf/components/newlib/platform_include -I/home/martin/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include -I/home/martin/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include -I/home/martin/esp/esp-idf/components/freertos/esp_additions/include/freertos -I/home/martin/esp/esp-idf/components/freertos/esp_additions/include -I/home/martin/esp/esp-idf/components/esp_hw_support/include -I/home/martin/esp/esp-idf/components/esp_hw_support/include/soc -I/home/martin/esp/esp-idf/components/esp_hw_support/include/soc/esp32 -I/home/martin/esp/esp-idf/components/esp_hw_support/port/esp32/. -I/home/martin/esp/esp-idf/components/esp_hw_support/port/esp32/private_include -I/home/martin/esp/esp-idf/components/heap/include -I/home/martin/esp/esp-idf/components/log/include -I/home/martin/esp/esp-idf/components/soc/include -I/home/martin/esp/esp-idf/components/soc/esp32/. -I/home/martin/esp/esp-idf/components/soc/esp32/include -I/home/martin/esp/esp-idf/components/hal/esp32/include -I/home/martin/esp/esp-idf/components/hal/include -I/home/martin/esp/esp-idf/components/hal/platform_port/include -I/home/martin/esp/esp-idf/components/esp_rom/include -I/home/martin/esp/esp-idf/components/esp_rom/include/esp32 -I/home/martin/esp/esp-idf/components/esp_rom/esp32 -I/home/martin/esp/esp-idf/components/esp_common/include -I/home/martin/esp/esp-idf/components/esp_system/include -I/home/martin/esp/esp-idf/components/esp_system/port/soc -I/home/martin/esp/esp-idf/components/esp_system/port/include/private -I/home/martin/esp/esp-idf/components/xtensa/include -I/home/martin/esp/esp-idf/components/xtensa/esp32/include -I/home/martin/esp/esp-idf/components/lwip/include -I/home/martin/esp/esp-idf/components/lwip/include/apps -I/home/martin/esp/esp-idf/components/lwip/include/apps/sntp -I/home/martin/esp/esp-idf/components/lwip/lwip/src/include -I/home/martin/esp/esp-idf/components/lwip/port/esp32/include -I/home/martin/esp/esp-idf/components/lwip/port/esp32/include/arch -I/home/martin/esp/esp-idf/components/esp_ringbuf/include -I/home/martin/esp/esp-idf/components/efuse/include -I/home/martin/esp/esp-idf/components/efuse/esp32/include -I/home/martin/esp/esp-idf/components/driver/include -I/home/martin/esp/esp-idf/components/driver/deprecated -I/home/martin/esp/esp-idf/components/driver/esp32/include -I/home/martin/esp/esp-idf/components/esp_pm/include -I/home/martin/esp/esp-idf/components/mbedtls/port/include -I/home/martin/esp/esp-idf/components/mbedtls/mbedtls/include -I/home/martin/esp/esp-idf/components/mbedtls/mbedtls/library -I/home/martin/esp/esp-idf/components/mbedtls/esp_crt_bundle/include -I/home/martin/esp/esp-idf/components/esp_app_format/include -I/home/martin/esp/esp-idf/components/bootloader_support/include -I/home/martin/esp/esp-idf/components/bootloader_support/bootloader_flash/include -I/home/martin/esp/esp-idf/components/esp_partition/include -I/home/martin/esp/esp-idf/components/app_update/include -I/home/martin/esp/esp-idf/components/spi_flash/include -I/home/martin/esp/esp-idf/components/pthread/include -I/home/martin/esp/esp-idf/components/esp_timer/include -I/home/martin/esp/esp-idf/components/app_trace/include -I/home/martin/esp/esp-idf/components/esp_event/include -I/home/martin/esp/esp-idf/components/nvs_flash/include -I/home/martin/esp/esp-idf/components/esp_phy/include -I/home/martin/esp/esp-idf/components/esp_phy/esp32/include -I/home/martin/esp/esp-idf/components/vfs/include -I/home/martin/esp/esp-idf/components/esp_netif/include -I/home/martin/esp/esp-idf/components/wpa_supplicant/include -I/home/martin/esp/esp-idf/components/wpa_supplicant/port/include -I/home/martin/esp/esp-idf/components/wpa_supplicant/esp_supplicant/include -I/home/martin/esp/esp-idf/components/esp_wifi/include -I/home/martin/esp/esp-idf/components/unity/include -I/home/martin/esp/esp-idf/components/unity/unity/src -I/home/martin/esp/esp-idf/components/cmock/CMock/src -I/home/martin/esp/esp-idf/components/console -I/home/martin/esp/esp-idf/components/http_parser -I/home/martin/esp/esp-idf/components/esp-tls -I/home/martin/esp/esp-idf/components/esp-tls/esp-tls-crypto -I/home/martin/esp/esp-idf/components/esp_adc/include -I/home/martin/esp/esp-idf/components/esp_adc/interface -I/home/martin/esp/esp-idf/components/esp_adc/esp32/include -I/home/martin/esp/esp-idf/components/esp_adc/deprecated/include -I/home/martin/esp/esp-idf/components/esp_eth/include -I/home/martin/esp/esp-idf/components/esp_gdbstub/include -I/home/martin/esp/esp-idf/components/esp_gdbstub/xtensa -I/home/martin/esp/esp-idf/components/esp_gdbstub/esp32 -I/home/martin/esp/esp-idf/components/esp_hid/include -I/home/martin/esp/esp-idf/components/tcp_transport/include -I/home/martin/esp/esp-idf/components/esp_http_client/include -I/home/martin/esp/esp-idf/components/esp_http_server/include -I/home/martin/esp/esp-idf/components/esp_https_ota/include -I/home/martin/esp/esp-idf/components/esp_lcd/include -I/home/martin/esp/esp-idf/components/esp_lcd/interface -I/home/martin/esp/esp-idf/components/protobuf-c/protobuf-c -I/home/martin/esp/esp-idf/components/protocomm/include/common -I/home/martin/esp/esp-idf/components/protocomm/include/security -I/home/martin/esp/esp-idf/components/protocomm/include/transports -I/home/martin/esp/esp-idf/components/esp_local_ctrl/include -I/home/martin/esp/esp-idf/components/esp_psram/include -I/home/martin/esp/esp-idf/components/espcoredump/include -I/home/martin/esp/esp-idf/components/espcoredump/include/port/xtensa -I/home/martin/esp/esp-idf/components/wear_levelling/include -I/home/martin/esp/esp-idf/components/sdmmc/include -I/home/martin/esp/esp-idf/components/fatfs/diskio -I/home/martin/esp/esp-idf/components/fatfs/vfs -I/home/martin/esp/esp-idf/components/fatfs/src -I/home/martin/esp/esp-idf/components/idf_test/include -I/home/martin/esp/esp-idf/components/idf_test/include/esp32 -I/home/martin/esp/esp-idf/components/ieee802154/include -I/home/martin/esp/esp-idf/components/json/cJSON -I/home/martin/esp/esp-idf/components/mqtt/esp-mqtt/include -I/home/martin/esp/esp-idf/components/perfmon/include -I/home/martin/esp/esp-idf/components/spiffs/include -I/home/martin/esp/esp-idf/components/ulp/ulp_common/include -I/home/martin/esp/esp-idf/components/ulp/ulp_common/include/esp32 -I/home/martin/esp/esp-idf/components/wifi_provisioning/include -I/home/martin/esp/esp-idf/examples/common_components/protocol_examples_common/include -I/home/martin/esp/projekti/iot-air-quality-monitor/components/lvgl -I/home/martin/esp/projekti/iot-air-quality-monitor/components/lvgl/src -I/home/martin/esp/projekti/iot-air-quality-monitor/components/lv_examples_old -I/home/martin/esp/projekti/iot-air-quality-monitor/components/lvgl_esp32_drivers -I/home/martin/esp/projekti/iot-air-quality-monitor/components/lvgl_esp32_drivers/lvgl_tft -I/home/martin/esp/projekti/iot-air-quality-monitor/components/lvgl_esp32_drivers/lvgl_touch -mlongcalls -Wno-frame-address  -ffunction-sections -fdata-sections -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=unused-but-set-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-enum-conversion -gdwarf-4 -ggdb -Og -fmacro-prefix-map=/home/martin/esp/projekti/iot-air-quality-monitor=. -fmacro-prefix-map=/home/martin/esp/esp-idf=/IDF -fstrict-volatile-bitfields -fno-jump-tables -fno-tree-switch-conversion -DconfigENABLE_FREERTOS_DEBUG_OCDAWARE=1 -std=gnu17 -Wno-old-style-declaration -Wno-format -MD -MT esp-idf/main/CMakeFiles/__idf_main.dir/main_app.c.obj -MF esp-idf/main/CMakeFiles/__idf_main.dir/main_app.c.obj.d -o esp-idf/main/CMakeFiles/__idf_main.dir/main_app.c.obj -c /home/martin/esp/projekti/iot-air-quality-monitor/main/main_app.c
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_app.c: In function 'app_main':
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_app.c:46:15: warning: unused variable 'ret' [-Wunused-variable]
+   46 |     esp_err_t ret = nvs_flash_init();
+      |               ^~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_app.c: In function 'T02_communication_task':
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_app.c:66:10: warning: unused variable 'hb_str' [-Wunused-variable]
+   66 |     char hb_str[10];
+      |          ^~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_app.c:65:19: warning: variable 'mqtt_hb_counter' set but not used [-Wunused-but-set-variable]
+   65 |     unsigned long mqtt_hb_counter = 0;
+      |                   ^~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_app.c:64:19: warning: unused variable 'hearth_beat_time' [-Wunused-variable]
+   64 |     unsigned long hearth_beat_time = 0;
+      |                   ^~~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_app.c:63:19: warning: variable 'sys_time' set but not used [-Wunused-but-set-variable]
+   63 |     unsigned long sys_time = 0;
+      |                   ^~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_app.c:61:35: error: parameter 'param' set but not used [-Werror=unused-but-set-parameter]
+   61 | void T02_communication_task(void *param)
+      |                             ~~~~~~^~~~~
+In file included from /home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:22,
+                 from /home/martin/esp/projekti/iot-air-quality-monitor/main/main_app.c:30:
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_app.c: At top level:
+/home/martin/esp/projekti/iot-air-quality-monitor/main/wifi_driver_utils.h:35:13: warning: 'print_auth_mode' declared 'static' but never defined [-Wunused-function]
+   35 | static void print_auth_mode(int authmode);
+      |             ^~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/wifi_driver_utils.h:36:13: warning: 'print_cipher_type' declared 'static' but never defined [-Wunused-function]
+   36 | static void print_cipher_type(int pairwise_cipher, int group_cipher);
+      |             ^~~~~~~~~~~~~~~~~
+In file included from /home/martin/esp/projekti/iot-air-quality-monitor/main/measurement_collection_task.h:17,
+                 from /home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:23,
+                 from /home/martin/esp/projekti/iot-air-quality-monitor/main/main_app.c:30:
+/home/martin/esp/projekti/iot-air-quality-monitor/main/mhz19.h:32:13: warning: 'mhz19_send_command' declared 'static' but never defined [-Wunused-function]
+   32 | static bool mhz19_send_command(const uint8_t *arg_cmd);
+      |             ^~~~~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/mhz19.h:33:16: warning: 'mhz19_calculate_checksum' declared 'static' but never defined [-Wunused-function]
+   33 | static uint8_t mhz19_calculate_checksum(const uint8_t* packet);
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/martin/esp/projekti/iot-air-quality-monitor/main/main_app.c:30:
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:68:13: warning: 'Create_TAB1' declared 'static' but never defined [-Wunused-function]
+   68 | static void Create_TAB1(lv_obj_t *tab_ptr);
+      |             ^~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:70:13: warning: 'Create_TAB3' declared 'static' but never defined [-Wunused-function]
+   70 | static void Create_TAB3(lv_obj_t *tab_ptr);
+      |             ^~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:71:13: warning: 'gui_initialize' declared 'static' but never defined [-Wunused-function]
+   71 | static void gui_initialize(lv_color_t *buf1, lv_color_t *buf2);
+      |             ^~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:72:13: warning: 'lv_tick_task' declared 'static' but never defined [-Wunused-function]
+   72 | static void lv_tick_task(void *arg);
+      |             ^~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:73:13: warning: 'gui_create_gui' declared 'static' but never defined [-Wunused-function]
+   73 | void static gui_create_gui(void);
+      |             ^~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:74:13: warning: 'T02_01_wifi_scan_task' declared 'static' but never defined [-Wunused-function]
+   74 | static void T02_01_wifi_scan_task(void *pvParameter);
+      |             ^~~~~~~~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:75:13: warning: 'T02_02_refresh_task' declared 'static' but never defined [-Wunused-function]
+   75 | static void T02_02_refresh_task(void *pvParameter);
+      |             ^~~~~~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:78:13: warning: 'wifi_enable_switch_event_handler' declared 'static' but never defined [-Wunused-function]
+   78 | static void wifi_enable_switch_event_handler(lv_obj_t * obj, lv_event_t event);
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:79:13: warning: 'wifi_connection_select_event_handler' declared 'static' but never defined [-Wunused-function]
+   79 | static void wifi_connection_select_event_handler(lv_obj_t * obj_dropdown, lv_event_t event);
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:80:13: warning: 'wifi_keyboard_event_handler' declared 'static' but never defined [-Wunused-function]
+   80 | static void wifi_keyboard_event_handler(lv_obj_t * obj, lv_event_t event);
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:22,
+                 from /home/martin/esp/projekti/iot-air-quality-monitor/main/main_app.c:30:
+/home/martin/esp/projekti/iot-air-quality-monitor/main/wifi_driver_utils.h:34:20: warning: 'TAG_WIFI' defined but not used [-Wunused-variable]
+   34 | static const char *TAG_WIFI = "scan";
+      |                    ^~~~~~~~
+cc1: some warnings being treated as errors
+[4/9] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/main_gui.c.obj
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.c: In function 'gui_create_gui':
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.c:182:20: warning: unused variable 'disp_size' [-Wunused-variable]
+  182 |     lv_disp_size_t disp_size = lv_disp_get_size_category(NULL);
+      |                    ^~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.c: In function 'Create_TAB3':
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.c:293:20: warning: unused variable 'disp_size' [-Wunused-variable]
+  293 |     lv_disp_size_t disp_size = lv_disp_get_size_category(NULL);
+      |                    ^~~~~~~~~
+In file included from /home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:22,
+                 from /home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.c:1:
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.c: At top level:
+/home/martin/esp/projekti/iot-air-quality-monitor/main/wifi_driver_utils.h:35:13: warning: 'print_auth_mode' declared 'static' but never defined [-Wunused-function]
+   35 | static void print_auth_mode(int authmode);
+      |             ^~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/wifi_driver_utils.h:36:13: warning: 'print_cipher_type' declared 'static' but never defined [-Wunused-function]
+   36 | static void print_cipher_type(int pairwise_cipher, int group_cipher);
+      |             ^~~~~~~~~~~~~~~~~
+In file included from /home/martin/esp/projekti/iot-air-quality-monitor/main/measurement_collection_task.h:17,
+                 from /home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:23,
+                 from /home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.c:1:
+/home/martin/esp/projekti/iot-air-quality-monitor/main/mhz19.h:32:13: warning: 'mhz19_send_command' declared 'static' but never defined [-Wunused-function]
+   32 | static bool mhz19_send_command(const uint8_t *arg_cmd);
+      |             ^~~~~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/mhz19.h:33:16: warning: 'mhz19_calculate_checksum' declared 'static' but never defined [-Wunused-function]
+   33 | static uint8_t mhz19_calculate_checksum(const uint8_t* packet);
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.c:243:13: warning: 'Create_TAB2' defined but not used [-Wunused-function]
+  243 | static void Create_TAB2(lv_obj_t *tab_ptr)
+      |             ^~~~~~~~~~~
+ninja: build stopped: subcommand failed.
