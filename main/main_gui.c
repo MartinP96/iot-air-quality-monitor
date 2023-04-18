@@ -1,5 +1,5 @@
 #include "main_gui.h"
-
+#include "measurement_collection.h"
 
 /************************
  *   GLOBAL VARIABLES
@@ -29,6 +29,9 @@ static lv_obj_t *humidity_textbox;
 static lv_obj_t *lmeter_VOC;
 static lv_obj_t *label_VOC;
 
+static lv_obj_t* measurement_topic_text;
+static lv_obj_t* sampling_time_text;
+
 /***********************************
  *          GUI Tasks 
  ***********************************/
@@ -49,10 +52,12 @@ void T00_user_interface_task(void *pvParameter)
     gui_create_gui();
 
     // Create sub tasks
-    xTaskCreate(T_measurement_task, "measurement_task", 1024*4, NULL, 1, NULL);
-    xTaskCreate(T02_02_refresh_task, "gui_refersh_task", 1024*2, NULL, 0, NULL);
-    xTaskCreate(T_mqtt_communication_task, "communication_task", 1024*2, NULL, 0, NULL);
+    xTaskCreate(T_measurement_task, "measurement_task", 1024*4, NULL, 2, NULL);
+    xTaskCreate(T_refresh_task, "gui_refersh_task", 1024*2, NULL, 0, NULL);
+    xTaskCreate(T_mqtt_communication_task, "communication_task", 1024*4, NULL, 0, NULL);
     
+    measurement_packet_st received_value;
+
     //Main GUI task while loop
     while (1) {
     /* Delay 1 tick (assumes FreeRTOS tistatic void ck is 10ms */
@@ -94,43 +99,42 @@ static void T02_01_wifi_scan_task(void *pvParameter)
 }
 
 // GUI Refresh Measurement indicators task //
-static void T02_02_refresh_task(void *pvParameter)
+static void T_refresh_task(void *pvParameter)
 {
+    measurement_packet_st received_value;
+
     while(1)
     {
-        measurement_packet_st received_value;
         if (xQueueReceive(measurement_queue, &received_value, portMAX_DELAY ) == pdPASS)
-		{
-            // co2 meter
-			lv_linemeter_set_value(lmeter_CO2, received_value.co2);
-            char co2_val_str[10];
-            sprintf(co2_val_str, "%d", received_value.co2);
-            strcat(co2_val_str, "\nppm");
-            lv_label_set_text(label_CO2, co2_val_str);
+        {
+            if (pdTRUE == xSemaphoreTake(xGuiSemaphore, portMAX_DELAY)) 
+            {
 
-            // temperature meter
-            char temperature_str[20];
-            sprintf(temperature_str, "%.2f", received_value.temperature);
-            strcat(temperature_str, " °C");
-            
-            if (strcmp(temperature_str, lv_textarea_get_text(temperature_textbox)) != 0) {
-            lv_textarea_set_text(temperature_textbox, temperature_str); }
+                // co2 meter
+                lv_linemeter_set_value(lmeter_CO2, received_value.co2);
+                char co2_val_str[10];
+                sprintf(co2_val_str, "%d", received_value.co2);
+                strcat(co2_val_str, "\nppm");
+                lv_label_set_text(label_CO2, co2_val_str);
 
-            // humidity meter
-            char humidty_str[20];
-            sprintf(humidty_str, "%.2f", received_value.humidity);
-            strcat(humidty_str, " %RH");
-            if (strcmp(humidty_str, lv_textarea_get_text(humidity_textbox)) != 0) {
-            lv_textarea_set_text(humidity_textbox, humidty_str);}
+                // temperature meter
+                char temperature_str[20];
+                sprintf(temperature_str, "%.2f", received_value.temperature);
+                strcat(temperature_str, " °C");
+                
+                if (strcmp(temperature_str, lv_textarea_get_text(temperature_textbox)) != 0) {
+                lv_textarea_set_text(temperature_textbox, temperature_str); }
 
-            // VOC meter
-            /*
-            lv_linemeter_set_value(lmeter_VOC, received_value.voc);
-            char voc_val_str[10];
-            sprintf(voc_val_str, "%d", received_value.voc);
-            lv_label_set_text(label_VOC, voc_val_str);
-            */
-		}
+                // humidity meter
+                char humidty_str[20];
+                sprintf(humidty_str, "%.2f", received_value.humidity);
+                strcat(humidty_str, " %RH");
+                if (strcmp(humidty_str, lv_textarea_get_text(humidity_textbox)) != 0) {
+                lv_textarea_set_text(humidity_textbox, humidty_str);}
+
+                xSemaphoreGive(xGuiSemaphore);
+            }
+        }         
     }
     vTaskDelete(NULL);
 }
@@ -302,7 +306,7 @@ static void Create_TAB3(lv_obj_t *tab_ptr)
     lv_dropdown_set_dir(wifi_dropdown, LV_DROPDOWN_DIR_DOWN);
     lv_dropdown_set_options(wifi_dropdown, "\n");
     lv_obj_set_event_cb(wifi_dropdown, wifi_connection_select_event_handler);
-    lv_obj_set_hidden(wifi_dropdown, true);
+    lv_obj_set_hidden(wifi_dropdown, false);
 
     /*Create a Preloader object*/
     preload = lv_spinner_create(tab_ptr, NULL);
@@ -311,6 +315,12 @@ static void Create_TAB3(lv_obj_t *tab_ptr)
     lv_obj_set_style_local_line_width(preload, LV_SPINNER_PART_INDIC, LV_STATE_DEFAULT, 5);
     lv_obj_align(preload, switch_enable_wifi, LV_ALIGN_OUT_RIGHT_MID, +20, 0);
     lv_obj_set_hidden(preload, true); 
+
+    // Topic setup text filed
+    measurement_topic_text = lv_textarea_create(tab_ptr, NULL);
+    lv_obj_set_size(measurement_topic_text, 250, 35);
+    lv_obj_set_y(measurement_topic_text, +150);
+    lv_obj_set_x(measurement_topic_text, +10);
 }
 
 

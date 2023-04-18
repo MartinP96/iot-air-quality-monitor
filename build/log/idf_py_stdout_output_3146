@@ -1,0 +1,112 @@
+[1/10] Performing build step for 'bootloader'
+[1/1] cd /home/martin/esp/projekti/iot-air-quality-monitor/build/bootloader/esp-idf/esptool_py && /home/martin/.espressif/python_env/idf5.1_py3.10_env/bin/python /home/martin/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/martin/esp/projekti/iot-air-quality-monitor/build/bootloader/bootloader.bin
+Bootloader binary size 0x6720 bytes. 0x8e0 bytes (8%) free.
+[2/8] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/system_gui.c.obj
+/home/martin/esp/projekti/iot-air-quality-monitor/main/system_gui.c: In function 'gui_create_gui':
+/home/martin/esp/projekti/iot-air-quality-monitor/main/system_gui.c:189:20: warning: unused variable 'disp_size' [-Wunused-variable]
+  189 |     lv_disp_size_t disp_size = lv_disp_get_size_category(NULL);
+      |                    ^~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/system_gui.c: In function 'Create_TAB3':
+/home/martin/esp/projekti/iot-air-quality-monitor/main/system_gui.c:300:20: warning: unused variable 'disp_size' [-Wunused-variable]
+  300 |     lv_disp_size_t disp_size = lv_disp_get_size_category(NULL);
+      |                    ^~~~~~~~~
+In file included from /home/martin/esp/projekti/iot-air-quality-monitor/main/system_gui.h:22,
+                 from /home/martin/esp/projekti/iot-air-quality-monitor/main/system_gui.c:1:
+/home/martin/esp/projekti/iot-air-quality-monitor/main/system_gui.c: At top level:
+/home/martin/esp/projekti/iot-air-quality-monitor/main/wifi_driver_utils.h:35:13: warning: 'print_auth_mode' declared 'static' but never defined [-Wunused-function]
+   35 | static void print_auth_mode(int authmode);
+      |             ^~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/wifi_driver_utils.h:36:13: warning: 'print_cipher_type' declared 'static' but never defined [-Wunused-function]
+   36 | static void print_cipher_type(int pairwise_cipher, int group_cipher);
+      |             ^~~~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/system_gui.c:250:13: warning: 'Create_TAB2' defined but not used [-Wunused-function]
+  250 | static void Create_TAB2(lv_obj_t *tab_ptr)
+      |             ^~~~~~~~~~~
+[3/8] Linking C static library esp-idf/main/libmain.a
+[4/8] Generating ld/sections.ld
+[5/8] Linking CXX executable mqtt_tcp.elf
+[6/8] Generating binary image from built executable
+esptool.py v4.5.dev0
+Creating esp32 image...
+Merged 25 ELF sections
+Successfully created esp32 image.
+Generated /home/martin/esp/projekti/iot-air-quality-monitor/build/mqtt_tcp.bin
+[7/8] cd /home/martin/esp/projekti/iot-air-quality-monitor/build/esp-idf/esptool_py && /home/martin/.espressif/python_env/idf5.1_py3.10_env/bin/python /home/martin/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/martin/esp/projekti/iot-air-quality-monitor/build/partition_table/partition-table.bin /home/martin/esp/projekti/iot-air-quality-monitor/build/mqtt_tcp.bin
+mqtt_tcp.bin binary size 0x115370 bytes. Smallest app partition is 0x177000 bytes. 0x61c90 bytes (26%) free.
+[7/8] cd /home/martin/esp/esp-idf/components/esptool_py && /usr/bin/cmake -D IDF_PATH=/home/martin/esp/esp-idf -D "SERIAL_TOOL=/home/martin/.espressif/python_env/idf5.1_py3.10_env/bin/python;;/home/martin/esp/esp-idf/components/esptool_py/esptool/esptool.py;--chip;esp32" -D "SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args" -D WORKING_DIRECTORY=/home/martin/esp/projekti/iot-air-quality-monitor/build -P /home/martin/esp/esp-idf/components/esptool_py/run_serial_tool.cmake
+esptool esp32 -p /dev/ttyUSB0 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 40m --flash_size 2MB 0x1000 bootloader/bootloader.bin 0x10000 mqtt_tcp.bin 0x8000 partition_table/partition-table.bin
+esptool.py v4.5.dev0
+Serial port /dev/ttyUSB0
+Connecting..............
+Chip is ESP32-D0WDQ6 (revision v1.0)
+Features: WiFi, BT, Dual Core, 240MHz, VRef calibration in efuse, Coding Scheme None
+Crystal is 40MHz
+MAC: 24:0a:c4:59:6d:74
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00001000 to 0x00007fff...
+Flash will be erased from 0x00010000 to 0x00125fff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+Compressed 26400 bytes to 16483...
+Writing at 0x00001000... (50 %)
+Writing at 0x0000769c... (100 %)
+Wrote 26400 bytes (16483 compressed) at 0x00001000 in 1.4 seconds (effective 145.9 kbit/s)...
+Hash of data verified.
+Compressed 1135472 bytes to 717008...
+Writing at 0x00010000... (2 %)
+Writing at 0x000192fe... (4 %)
+Writing at 0x00025e70... (6 %)
+Writing at 0x0002ba62... (9 %)
+Writing at 0x00032771... (11 %)
+Writing at 0x0003ee26... (13 %)
+Writing at 0x00045129... (15 %)
+Writing at 0x0004b013... (18 %)
+Writing at 0x00050dfd... (20 %)
+Writing at 0x00057fb4... (22 %)
+Writing at 0x0005e134... (25 %)
+Writing at 0x00063e3d... (27 %)
+Writing at 0x00069e9f... (29 %)
+Writing at 0x0007014d... (31 %)
+Writing at 0x00076384... (34 %)
+Writing at 0x0007c0e8... (36 %)
+Writing at 0x00081bbc... (38 %)
+Writing at 0x0008758c... (40 %)
+Writing at 0x0008dc6d... (43 %)
+Writing at 0x0009373f... (45 %)
+Writing at 0x00099060... (47 %)
+Writing at 0x0009e450... (50 %)
+Writing at 0x000a386f... (52 %)
+Writing at 0x000a8de6... (54 %)
+Writing at 0x000ae239... (56 %)
+Writing at 0x000b3a0a... (59 %)
+Writing at 0x000b9273... (61 %)
+Writing at 0x000bf1e2... (63 %)
+Writing at 0x000c4999... (65 %)
+Writing at 0x000c9ec5... (68 %)
+Writing at 0x000cf7de... (70 %)
+Writing at 0x000d520f... (72 %)
+Writing at 0x000da8af... (75 %)
+Writing at 0x000e03df... (77 %)
+Writing at 0x000e5dd0... (79 %)
+Writing at 0x000eb714... (81 %)
+Writing at 0x000f47c6... (84 %)
+Writing at 0x000fca71... (86 %)
+Writing at 0x001031d3... (88 %)
+Writing at 0x0010a415... (90 %)
+Writing at 0x001102b1... (93 %)
+Writing at 0x00115c1e... (95 %)
+Writing at 0x0011b74f... (97 %)
+Writing at 0x00120f62... (100 %)
+Wrote 1135472 bytes (717008 compressed) at 0x00010000 in 43.3 seconds (effective 210.0 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 105...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (105 compressed) at 0x00008000 in 0.1 seconds (effective 305.2 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...

@@ -1,0 +1,312 @@
+[0/1] Re-running CMake...
+-- Building ESP-IDF components for target esp32
+-- Project sdkconfig file /home/martin/esp/projekti/iot-air-quality-monitor/sdkconfig
+-- App "mqtt_tcp" version: 61d1160-dirty
+-- Adding linker script /home/martin/esp/projekti/iot-air-quality-monitor/build/esp-idf/esp_system/ld/memory.ld
+-- Adding linker script /home/martin/esp/esp-idf/components/esp_system/ld/esp32/sections.ld.in
+-- Adding linker script /home/martin/esp/esp-idf/components/esp_rom/esp32/ld/esp32.rom.ld
+-- Adding linker script /home/martin/esp/esp-idf/components/esp_rom/esp32/ld/esp32.rom.api.ld
+-- Adding linker script /home/martin/esp/esp-idf/components/esp_rom/esp32/ld/esp32.rom.libgcc.ld
+-- Adding linker script /home/martin/esp/esp-idf/components/esp_rom/esp32/ld/esp32.rom.newlib-data.ld
+-- Adding linker script /home/martin/esp/esp-idf/components/esp_rom/esp32/ld/esp32.rom.syscalls.ld
+-- Adding linker script /home/martin/esp/esp-idf/components/esp_rom/esp32/ld/esp32.rom.newlib-funcs.ld
+-- Adding linker script /home/martin/esp/esp-idf/components/soc/esp32/ld/esp32.peripherals.ld
+-- Components: app_trace app_update bootloader bootloader_support bt cmock console cxx driver efuse esp-tls esp_adc esp_app_format esp_common esp_eth esp_event esp_gdbstub esp_hid esp_http_client esp_http_server esp_https_ota esp_https_server esp_hw_support esp_lcd esp_local_ctrl esp_netif esp_netif_stack esp_partition esp_phy esp_pm esp_psram esp_ringbuf esp_rom esp_system esp_timer esp_wifi espcoredump esptool_py fatfs freertos hal heap http_parser idf_test ieee802154 json log lv_examples_old lvgl lvgl_esp32_drivers lwip main mbedtls mqtt newlib nvs_flash openthread partition_table perfmon protobuf-c protocol_examples_common protocomm pthread sdmmc soc spi_flash spiffs tcp_transport ulp unity usb vfs wear_levelling wifi_provisioning wpa_supplicant xtensa
+-- Component paths: /home/martin/esp/esp-idf/components/app_trace /home/martin/esp/esp-idf/components/app_update /home/martin/esp/esp-idf/components/bootloader /home/martin/esp/esp-idf/components/bootloader_support /home/martin/esp/esp-idf/components/bt /home/martin/esp/esp-idf/components/cmock /home/martin/esp/esp-idf/components/console /home/martin/esp/esp-idf/components/cxx /home/martin/esp/esp-idf/components/driver /home/martin/esp/esp-idf/components/efuse /home/martin/esp/esp-idf/components/esp-tls /home/martin/esp/esp-idf/components/esp_adc /home/martin/esp/esp-idf/components/esp_app_format /home/martin/esp/esp-idf/components/esp_common /home/martin/esp/esp-idf/components/esp_eth /home/martin/esp/esp-idf/components/esp_event /home/martin/esp/esp-idf/components/esp_gdbstub /home/martin/esp/esp-idf/components/esp_hid /home/martin/esp/esp-idf/components/esp_http_client /home/martin/esp/esp-idf/components/esp_http_server /home/martin/esp/esp-idf/components/esp_https_ota /home/martin/esp/esp-idf/components/esp_https_server /home/martin/esp/esp-idf/components/esp_hw_support /home/martin/esp/esp-idf/components/esp_lcd /home/martin/esp/esp-idf/components/esp_local_ctrl /home/martin/esp/esp-idf/components/esp_netif /home/martin/esp/esp-idf/components/esp_netif_stack /home/martin/esp/esp-idf/components/esp_partition /home/martin/esp/esp-idf/components/esp_phy /home/martin/esp/esp-idf/components/esp_pm /home/martin/esp/esp-idf/components/esp_psram /home/martin/esp/esp-idf/components/esp_ringbuf /home/martin/esp/esp-idf/components/esp_rom /home/martin/esp/esp-idf/components/esp_system /home/martin/esp/esp-idf/components/esp_timer /home/martin/esp/esp-idf/components/esp_wifi /home/martin/esp/esp-idf/components/espcoredump /home/martin/esp/esp-idf/components/esptool_py /home/martin/esp/esp-idf/components/fatfs /home/martin/esp/esp-idf/components/freertos /home/martin/esp/esp-idf/components/hal /home/martin/esp/esp-idf/components/heap /home/martin/esp/esp-idf/components/http_parser /home/martin/esp/esp-idf/components/idf_test /home/martin/esp/esp-idf/components/ieee802154 /home/martin/esp/esp-idf/components/json /home/martin/esp/esp-idf/components/log /home/martin/esp/projekti/iot-air-quality-monitor/components/lv_examples_old /home/martin/esp/projekti/iot-air-quality-monitor/components/lvgl /home/martin/esp/projekti/iot-air-quality-monitor/components/lvgl_esp32_drivers /home/martin/esp/esp-idf/components/lwip /home/martin/esp/projekti/iot-air-quality-monitor/main /home/martin/esp/esp-idf/components/mbedtls /home/martin/esp/esp-idf/components/mqtt /home/martin/esp/esp-idf/components/newlib /home/martin/esp/esp-idf/components/nvs_flash /home/martin/esp/esp-idf/components/openthread /home/martin/esp/esp-idf/components/partition_table /home/martin/esp/esp-idf/components/perfmon /home/martin/esp/esp-idf/components/protobuf-c /home/martin/esp/esp-idf/examples/common_components/protocol_examples_common /home/martin/esp/esp-idf/components/protocomm /home/martin/esp/esp-idf/components/pthread /home/martin/esp/esp-idf/components/sdmmc /home/martin/esp/esp-idf/components/soc /home/martin/esp/esp-idf/components/spi_flash /home/martin/esp/esp-idf/components/spiffs /home/martin/esp/esp-idf/components/tcp_transport /home/martin/esp/esp-idf/components/ulp /home/martin/esp/esp-idf/components/unity /home/martin/esp/esp-idf/components/usb /home/martin/esp/esp-idf/components/vfs /home/martin/esp/esp-idf/components/wear_levelling /home/martin/esp/esp-idf/components/wifi_provisioning /home/martin/esp/esp-idf/components/wpa_supplicant /home/martin/esp/esp-idf/components/xtensa
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/martin/esp/projekti/iot-air-quality-monitor/build
+[1/187] Building C object esp-idf/esp_app_format/CMakeFiles/__idf_esp_app_format.dir/esp_app_desc.c.obj
+[2/187] Performing build step for 'bootloader'
+[1/1] cd /home/martin/esp/projekti/iot-air-quality-monitor/build/bootloader/esp-idf/esptool_py && /home/martin/.espressif/python_env/idf5.1_py3.10_env/bin/python /home/martin/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/martin/esp/projekti/iot-air-quality-monitor/build/bootloader/bootloader.bin
+Bootloader binary size 0x6720 bytes. 0x8e0 bytes (8%) free.
+[3/185] Linking C static library esp-idf/esp_app_format/libesp_app_format.a
+[4/185] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/main_gui.c.obj
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.c: In function 'gui_create_gui':
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.c:189:20: warning: unused variable 'disp_size' [-Wunused-variable]
+  189 |     lv_disp_size_t disp_size = lv_disp_get_size_category(NULL);
+      |                    ^~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.c: In function 'Create_TAB3':
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.c:300:20: warning: unused variable 'disp_size' [-Wunused-variable]
+  300 |     lv_disp_size_t disp_size = lv_disp_get_size_category(NULL);
+      |                    ^~~~~~~~~
+In file included from /home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:22,
+                 from /home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.c:1:
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.c: At top level:
+/home/martin/esp/projekti/iot-air-quality-monitor/main/wifi_driver_utils.h:35:13: warning: 'print_auth_mode' declared 'static' but never defined [-Wunused-function]
+   35 | static void print_auth_mode(int authmode);
+      |             ^~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/wifi_driver_utils.h:36:13: warning: 'print_cipher_type' declared 'static' but never defined [-Wunused-function]
+   36 | static void print_cipher_type(int pairwise_cipher, int group_cipher);
+      |             ^~~~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.c:250:13: warning: 'Create_TAB2' defined but not used [-Wunused-function]
+  250 | static void Create_TAB2(lv_obj_t *tab_ptr)
+      |             ^~~~~~~~~~~
+[5/185] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/main_app.c.obj
+In file included from /home/martin/esp/projekti/iot-air-quality-monitor/main/main_app.c:38:
+/home/martin/esp/esp-idf/components/driver/deprecated/driver/adc.h:19:2: warning: #warning "legacy adc driver is deprecated, please migrate to use esp_adc/adc_oneshot.h and esp_adc/adc_continuous.h for oneshot mode and continuous mode drivers respectively" [-Wcpp]
+   19 | #warning "legacy adc driver is deprecated, please migrate to use esp_adc/adc_oneshot.h and esp_adc/adc_continuous.h for oneshot mode and continuous mode drivers respectively"
+      |  ^~~~~~~
+In file included from /home/martin/esp/projekti/iot-air-quality-monitor/main/main_app.c:39:
+/home/martin/esp/esp-idf/components/esp_adc/deprecated/include/esp_adc_cal.h:17:2: warning: #warning "legacy adc calibration driver is deprecated, please migrate to use esp_adc/adc_cali.h and esp_adc/adc_cali_scheme.h" [-Wcpp]
+   17 | #warning "legacy adc calibration driver is deprecated, please migrate to use esp_adc/adc_cali.h and esp_adc/adc_cali_scheme.h"
+      |  ^~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_app.c: In function 'app_main':
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_app.c:69:15: warning: unused variable 'ret' [-Wunused-variable]
+   69 |     esp_err_t ret = nvs_flash_init();
+      |               ^~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_app.c: In function 'get_measurements':
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_app.c:200:13: warning: unused variable 'ret' [-Wunused-variable]
+  200 |         int ret = readDHT();
+      |             ^~~
+In file included from /home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:22,
+                 from /home/martin/esp/projekti/iot-air-quality-monitor/main/main_app.c:30:
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_app.c: At top level:
+/home/martin/esp/projekti/iot-air-quality-monitor/main/wifi_driver_utils.h:35:13: warning: 'print_auth_mode' declared 'static' but never defined [-Wunused-function]
+   35 | static void print_auth_mode(int authmode);
+      |             ^~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/wifi_driver_utils.h:36:13: warning: 'print_cipher_type' declared 'static' but never defined [-Wunused-function]
+   36 | static void print_cipher_type(int pairwise_cipher, int group_cipher);
+      |             ^~~~~~~~~~~~~~~~~
+In file included from /home/martin/esp/projekti/iot-air-quality-monitor/main/main_app.c:30:
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:67:13: warning: 'Create_TAB1' declared 'static' but never defined [-Wunused-function]
+   67 | static void Create_TAB1(lv_obj_t *tab_ptr);
+      |             ^~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:69:13: warning: 'Create_TAB3' declared 'static' but never defined [-Wunused-function]
+   69 | static void Create_TAB3(lv_obj_t *tab_ptr);
+      |             ^~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:70:13: warning: 'gui_initialize' declared 'static' but never defined [-Wunused-function]
+   70 | static void gui_initialize(lv_color_t *buf1, lv_color_t *buf2);
+      |             ^~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:71:13: warning: 'lv_tick_task' declared 'static' but never defined [-Wunused-function]
+   71 | static void lv_tick_task(void *arg);
+      |             ^~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:72:13: warning: 'gui_create_gui' declared 'static' but never defined [-Wunused-function]
+   72 | void static gui_create_gui(void);
+      |             ^~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:73:13: warning: 'T02_01_wifi_scan_task' declared 'static' but never defined [-Wunused-function]
+   73 | static void T02_01_wifi_scan_task(void *pvParameter);
+      |             ^~~~~~~~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:74:13: warning: 'T02_02_refresh_task' declared 'static' but never defined [-Wunused-function]
+   74 | static void T02_02_refresh_task(void *pvParameter);
+      |             ^~~~~~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:77:13: warning: 'wifi_enable_switch_event_handler' declared 'static' but never defined [-Wunused-function]
+   77 | static void wifi_enable_switch_event_handler(lv_obj_t * obj, lv_event_t event);
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:78:13: warning: 'wifi_connection_select_event_handler' declared 'static' but never defined [-Wunused-function]
+   78 | static void wifi_connection_select_event_handler(lv_obj_t * obj_dropdown, lv_event_t event);
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:79:13: warning: 'wifi_keyboard_event_handler' declared 'static' but never defined [-Wunused-function]
+   79 | static void wifi_keyboard_event_handler(lv_obj_t * obj, lv_event_t event);
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/martin/esp/projekti/iot-air-quality-monitor/main/main_app.c:33:
+/home/martin/esp/projekti/iot-air-quality-monitor/main/mhz19.h:32:13: warning: 'mhz19_send_command' declared 'static' but never defined [-Wunused-function]
+   32 | static bool mhz19_send_command(const uint8_t *arg_cmd);
+      |             ^~~~~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/mhz19.h:33:16: warning: 'mhz19_calculate_checksum' declared 'static' but never defined [-Wunused-function]
+   33 | static uint8_t mhz19_calculate_checksum(const uint8_t* packet);
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_app.c:64:38: warning: 'adc1_chars' defined but not used [-Wunused-variable]
+   64 | static esp_adc_cal_characteristics_t adc1_chars;
+      |                                      ^~~~~~~~~~
+In file included from /home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:22,
+                 from /home/martin/esp/projekti/iot-air-quality-monitor/main/main_app.c:30:
+/home/martin/esp/projekti/iot-air-quality-monitor/main/wifi_driver_utils.h:34:20: warning: 'TAG_WIFI' defined but not used [-Wunused-variable]
+   34 | static const char *TAG_WIFI = "scan";
+      |                    ^~~~~~~~
+[6/185] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/DHT22.c.obj
+[7/185] Building C object esp-idf/lvgl/CMakeFiles/__idf_lvgl.dir/src/lv_font/lv_font_dejavu_16_persian_hebrew.c.obj
+[8/185] Building C object esp-idf/lvgl/CMakeFiles/__idf_lvgl.dir/src/lv_font/lv_font_montserrat_10.c.obj
+[9/185] Building C object esp-idf/lvgl/CMakeFiles/__idf_lvgl.dir/src/lv_font/lv_font_montserrat_12.c.obj
+[10/185] Building C object esp-idf/lvgl/CMakeFiles/__idf_lvgl.dir/src/lv_font/lv_font_montserrat_14.c.obj
+[11/185] Building C object esp-idf/lvgl/CMakeFiles/__idf_lvgl.dir/src/lv_font/lv_font_montserrat_16.c.obj
+[12/185] Building C object esp-idf/lvgl/CMakeFiles/__idf_lvgl.dir/src/lv_font/lv_font_montserrat_18.c.obj
+[13/185] Building C object esp-idf/lvgl/CMakeFiles/__idf_lvgl.dir/src/lv_font/lv_font_loader.c.obj
+[14/185] Building C object esp-idf/lvgl/CMakeFiles/__idf_lvgl.dir/src/lv_font/lv_font_montserrat_20.c.obj
+[15/185] Building C object esp-idf/lvgl/CMakeFiles/__idf_lvgl.dir/src/lv_font/lv_font_montserrat_22.c.obj
+[16/185] Building C object esp-idf/lvgl/CMakeFiles/__idf_lvgl.dir/src/lv_font/lv_font_montserrat_12_subpx.c.obj
+[17/185] Building C object esp-idf/lvgl/CMakeFiles/__idf_lvgl.dir/src/lv_font/lv_font_montserrat_28_compressed.c.obj
+[18/185] Building C object esp-idf/lvgl/CMakeFiles/__idf_lvgl.dir/src/lv_font/lv_font_montserrat_32.c.obj
+[19/185] Building C object esp-idf/lvgl/CMakeFiles/__idf_lvgl.dir/src/lv_font/lv_font_montserrat_24.c.obj
+[20/185] Building C object esp-idf/lvgl/CMakeFiles/__idf_lvgl.dir/src/lv_font/lv_font_montserrat_26.c.obj
+[21/185] Building C object esp-idf/lvgl/CMakeFiles/__idf_lvgl.dir/src/lv_font/lv_font_montserrat_28.c.obj
+[22/185] Building C object esp-idf/lvgl/CMakeFiles/__idf_lvgl.dir/src/lv_font/lv_font_montserrat_40.c.obj
+[23/185] Building C object esp-idf/lvgl/CMakeFiles/__idf_lvgl.dir/src/lv_font/lv_font_montserrat_42.c.obj
+[24/185] Building C object esp-idf/lvgl/CMakeFiles/__idf_lvgl.dir/src/lv_font/lv_font_montserrat_44.c.obj
+[25/185] Building C object esp-idf/lvgl/CMakeFiles/__idf_lvgl.dir/src/lv_font/lv_font_montserrat_34.c.obj
+[26/185] Building C object esp-idf/lvgl/CMakeFiles/__idf_lvgl.dir/src/lv_font/lv_font_montserrat_36.c.obj
+[27/185] Building C object esp-idf/lvgl/CMakeFiles/__idf_lvgl.dir/src/lv_font/lv_font_montserrat_30.c.obj
+[28/185] Building C object esp-idf/lvgl/CMakeFiles/__idf_lvgl.dir/src/lv_font/lv_font_montserrat_38.c.obj
+[29/185] Building C object esp-idf/lvgl/CMakeFiles/__idf_lvgl.dir/src/lv_font/lv_font_unscii_16.c.obj
+[30/185] Building C object esp-idf/lvgl/CMakeFiles/__idf_lvgl.dir/src/lv_font/lv_font_unscii_8.c.obj
+[31/185] Building C object esp-idf/lvgl/CMakeFiles/__idf_lvgl.dir/src/lv_font/lv_font_montserrat_46.c.obj
+[32/185] Building C object esp-idf/lvgl/CMakeFiles/__idf_lvgl.dir/src/lv_font/lv_font_montserrat_48.c.obj
+[33/185] Building C object esp-idf/lvgl/CMakeFiles/__idf_lvgl.dir/src/lv_font/lv_font_montserrat_8.c.obj
+[34/185] Building C object esp-idf/lvgl/CMakeFiles/__idf_lvgl.dir/src/lv_font/lv_font_simsun_16_cjk.c.obj
+[35/185] Building C object esp-idf/lvgl/CMakeFiles/__idf_lvgl.dir/src/lv_themes/lv_theme_empty.c.obj
+[36/185] Building C object esp-idf/lvgl/CMakeFiles/__idf_lvgl.dir/src/lv_themes/lv_theme.c.obj
+[37/185] Building C object esp-idf/lvgl/CMakeFiles/__idf_lvgl.dir/src/lv_themes/lv_theme_mono.c.obj
+[38/185] Building C object esp-idf/lvgl/CMakeFiles/__idf_lvgl.dir/src/lv_themes/lv_theme_template.c.obj
+[39/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/assets/img_cogwheel_argb.c.obj
+[40/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/assets/img_cogwheel_indexed16.c.obj
+[41/185] Building C object esp-idf/lvgl/CMakeFiles/__idf_lvgl.dir/src/lv_themes/lv_theme_material.c.obj
+[42/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/assets/img_cogwheel_chroma_keyed.c.obj
+[43/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/assets/img_cogwheel_alpha16.c.obj
+[44/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_music/assets/img_lv_demo_music_btn_pause.c.obj
+[45/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_music/assets/img_lv_demo_music_btn_loop.c.obj
+[46/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_music/assets/img_lv_demo_music_btn_prev.c.obj
+[47/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_benchmark/lv_demo_benchmark.c.obj
+[48/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_keypad_encoder/lv_demo_keypad_encoder.c.obj
+[49/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/assets/lv_font_montserrat_28_compr_az.c.obj
+[50/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/assets/img_cogwheel_rgb.c.obj
+[51/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/assets/img_hand.c.obj
+[52/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/assets/lv_font_montserrat_12_compr_az.c.obj
+[53/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/assets/lv_font_montserrat_16_compr_az.c.obj
+[54/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_music/assets/img_lv_demo_music_btn_list_pause.c.obj
+[55/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_music/assets/img_lv_demo_music_btn_list_play.c.obj
+[56/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_music/assets/img_lv_demo_music_btn_next.c.obj
+[57/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_music/assets/img_lv_demo_music_btn_rnd.c.obj
+[58/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_music/assets/img_lv_demo_music_corner_right.c.obj
+[59/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_music/assets/img_lv_demo_music_btn_play.c.obj
+[60/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_music/assets/img_lv_demo_music_cover_1.c.obj
+[61/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_music/assets/img_lv_demo_music_cover_3.c.obj
+[62/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_music/assets/img_lv_demo_music_corner_left.c.obj
+[63/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_music/assets/img_lv_demo_music_icon_1.c.obj
+[64/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_music/assets/img_lv_demo_music_icon_2.c.obj
+[65/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_music/assets/img_lv_demo_music_icon_3.c.obj
+[66/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_music/assets/img_lv_demo_music_cover_2.c.obj
+[67/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_music/assets/img_lv_demo_music_wave_bottom.c.obj
+[68/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_music/assets/img_lv_demo_music_wave_top.c.obj
+[69/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_music/assets/img_lv_demo_music_icon_4.c.obj
+[70/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_music/assets/img_lv_demo_music_list_border.c.obj
+[71/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_music/assets/img_lv_demo_music_logo.c.obj
+[72/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_music/lv_demo_music.c.obj
+[73/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_music/lv_demo_music_list.c.obj
+[74/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_music/assets/img_lv_demo_music_slider_knob.c.obj
+[75/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_music/lv_demo_music_main.c.obj
+[76/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_printer/images/lv_demo_printer_icon_bright.c.obj
+[77/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_music/assets/lv_demo_music_font_16_bold.c.obj
+[78/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_printer/images/lv_demo_printer_img_btn_bg_3.c.obj
+[79/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_printer/images/lv_demo_printer_img_btn_bg_4.c.obj
+[80/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_printer/images/lv_demo_printer_icon_tel.c.obj
+[81/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_printer/images/lv_demo_printer_icon_eco.c.obj
+[82/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_printer/images/lv_demo_printer_icon_pc.c.obj
+[83/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_printer/images/lv_demo_printer_icon_wifi.c.obj
+[84/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_printer/images/lv_demo_printer_icon_hue.c.obj
+[85/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_printer/images/lv_demo_printer_img_btn_bg_1.c.obj
+[86/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_printer/images/lv_demo_printer_img_copy.c.obj
+[87/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_printer/images/lv_demo_printer_img_internet.c.obj
+[88/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_printer/images/lv_demo_printer_img_no_internet.c.obj
+[89/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_printer/images/lv_demo_printer_img_btn_bg_2.c.obj
+[90/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_printer/images/lv_demo_printer_img_cloud.c.obj
+[91/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_printer/images/lv_demo_printer_img_phone.c.obj
+[92/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_printer/images/lv_demo_printer_img_print.c.obj
+[93/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_printer/images/lv_demo_printer_img_printer2.c.obj
+[94/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_printer/images/lv_demo_printer_img_mobile.c.obj
+[95/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_printer/images/lv_demo_printer_img_usb.c.obj
+[96/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_printer/images/lv_demo_printer_img_wave.c.obj
+[97/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_printer/images/lv_demo_printer_img_ready.c.obj
+[98/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_printer/images/lv_demo_printer_img_scan.c.obj
+[99/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_printer/lv_demo_printer_theme.c.obj
+[100/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_printer/images/lv_demo_printer_img_scan_example.c.obj
+[101/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_printer/images/lv_demo_printer_img_setup.c.obj
+[102/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_stress/lv_demo_stress.c.obj
+[103/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_get_started/lv_ex_get_started_1.c.obj
+[104/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_printer/lv_demo_printer.c.obj
+[105/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_get_started/lv_ex_get_started_2.c.obj
+[106/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_get_started/lv_ex_get_started_3.c.obj
+[107/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_style/lv_ex_style_1.c.obj
+[108/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_style/lv_ex_style_4.c.obj
+[109/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_demo_widgets/lv_demo_widgets.c.obj
+[110/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_style/lv_ex_style_10.c.obj
+[111/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_style/lv_ex_style_2.c.obj
+[112/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_style/lv_ex_style_11.c.obj
+[113/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_style/lv_ex_style_5.c.obj
+[114/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_style/lv_ex_style_7.c.obj
+[115/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_style/lv_ex_style_3.c.obj
+[116/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_style/lv_ex_style_8.c.obj
+[117/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_arc/lv_ex_arc_1.c.obj
+[118/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_style/lv_ex_style_6.c.obj
+[119/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_arc/lv_ex_arc_2.c.obj
+[120/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_btn/lv_ex_btn_1.c.obj
+[121/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_style/lv_ex_style_9.c.obj
+[122/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_btn/lv_ex_btn_2.c.obj
+[123/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_btnmatrix/lv_ex_btnmatrix_1.c.obj
+[124/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_calendar/lv_ex_calendar_1.c.obj
+[125/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_bar/lv_ex_bar_1.c.obj
+[126/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_checkbox/lv_ex_checkbox_1.c.obj
+[127/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_cont/lv_ex_cont_1.c.obj
+[128/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_canvas/lv_ex_canvas_1.c.obj
+[129/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_canvas/lv_ex_canvas_2.c.obj
+[130/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_chart/lv_ex_chart_1.c.obj
+[131/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_cpicker/lv_ex_cpicker_2.c.obj
+[132/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_chart/lv_ex_chart_2.c.obj
+[133/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_dropdown/lv_ex_dropdown_1.c.obj
+[134/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_gauge/lv_ex_gauge_1.c.obj
+[135/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_cpicker/lv_ex_cpicker_1.c.obj
+[136/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_gauge/lv_ex_gauge_2.c.obj
+[137/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_img/lv_ex_img_3.c.obj
+/home/martin/esp/projekti/iot-air-quality-monitor/components/lv_examples_old/lv_examples/src/lv_ex_widgets/lv_ex_img/lv_ex_img_3.c: In function 'lv_ex_img_3':
+/home/martin/esp/projekti/iot-air-quality-monitor/components/lv_examples_old/lv_examples/src/lv_ex_widgets/lv_ex_img/lv_ex_img_3.c:23:29: warning: cast between incompatible function types from 'void (*)(lv_obj_t *, uint16_t)' {aka 'void (*)(struct _lv_obj_t *, short unsigned int)'} to 'void (*)(void *, lv_anim_value_t)' {aka 'void (*)(void *, short int)'} [-Wcast-function-type]
+   23 |     lv_anim_set_exec_cb(&a, (lv_anim_exec_xcb_t)lv_img_set_zoom);
+      |                             ^
+[138/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_img/lv_ex_img_2.c.obj
+[139/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_dropdown/lv_ex_dropdown_2.c.obj
+[140/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_imgbtn/imgbtn_blue.c.obj
+[141/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_imgbtn/imgbtn_green.c.obj
+[142/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_img/lv_ex_img_1.c.obj
+[143/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_led/lv_ex_led_1.c.obj
+[144/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_label/lv_ex_label_3.c.obj
+[145/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_imgbtn/lv_ex_imgbtn_1.c.obj
+[146/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_keyboard/lv_ex_keyboard_1.c.obj
+[147/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_label/lv_ex_label_1.c.obj
+[148/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_linemeter/lv_ex_linemeter_1.c.obj
+[149/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_label/lv_ex_label_2.c.obj
+[150/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_list/lv_ex_list_1.c.obj
+[151/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_msgbox/lv_ex_msgbox_2.c.obj
+[152/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_obj/lv_ex_obj_1.c.obj
+[153/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_line/lv_ex_line_1.c.obj
+[154/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_objmask/lv_ex_objmask_1.c.obj
+[155/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_objmask/lv_ex_objmask_2.c.obj
+[156/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_msgbox/lv_ex_msgbox_1.c.obj
+[157/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_page/lv_ex_page_1.c.obj
+[158/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_spinbox/lv_ex_spinbox_1.c.obj
+[159/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_roller/lv_ex_roller_1.c.obj
+[160/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_slider/lv_ex_slider_1.c.obj
+[161/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_spinner/lv_ex_spinner_1.c.obj
+[162/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_table/lv_ex_table_1.c.obj
+[163/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_tabview/lv_ex_tabview_1.c.obj
+[164/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_slider/lv_ex_slider_2.c.obj
+[165/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_textarea/lv_ex_textarea_2.c.obj
+[166/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_switch/lv_ex_switch_1.c.obj
+[167/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_textarea/lv_ex_textarea_3.c.obj
+[168/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_textarea/lv_ex_textarea_1.c.obj
+[169/185] Building C object esp-idf/lvgl_esp32_drivers/CMakeFiles/__idf_lvgl_esp32_drivers.dir/lvgl_tft/ili9341.c.obj
+[170/185] Building C object esp-idf/lvgl_esp32_drivers/CMakeFiles/__idf_lvgl_esp32_drivers.dir/lvgl_tft/disp_spi.c.obj
+/home/martin/esp/projekti/iot-air-quality-monitor/components/lvgl_esp32_drivers/lvgl_tft/disp_spi.c:301:1: warning: ignoring attribute 'section (".iram1.22")' because it conflicts with previous 'section (".iram1.21")' [-Wattributes]
+  301 | {
+      | ^
+/home/martin/esp/projekti/iot-air-quality-monitor/components/lvgl_esp32_drivers/lvgl_tft/disp_spi.c:88:23: note: previous declaration here
+   88 | static void IRAM_ATTR spi_ready (spi_transaction_t *trans);
+      |                       ^~~~~~~~~
+[171/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_win/lv_ex_win_1.c.obj
+[172/185] Building C object esp-idf/lvgl_esp32_drivers/CMakeFiles/__idf_lvgl_esp32_drivers.dir/lvgl_tft/disp_driver.c.obj
+[173/185] Building C object esp-idf/lv_examples_old/CMakeFiles/__idf_lv_examples_old.dir/lv_examples/src/lv_ex_widgets/lv_ex_tileview/lv_ex_tileview_1.c.obj
+[174/185] Building C object esp-idf/lvgl_esp32_drivers/CMakeFiles/__idf_lvgl_esp32_drivers.dir/lvgl_touch/touch_driver.c.obj
+[175/185] Building C object esp-idf/lvgl_esp32_drivers/CMakeFiles/__idf_lvgl_esp32_drivers.dir/lvgl_helpers.c.obj
+[176/185] Building C object esp-idf/lvgl_esp32_drivers/CMakeFiles/__idf_lvgl_esp32_drivers.dir/lvgl_touch/xpt2046.c.obj
+[177/185] Building C object esp-idf/lvgl_esp32_drivers/CMakeFiles/__idf_lvgl_esp32_drivers.dir/lvgl_touch/tp_spi.c.obj
+[178/185] Linking C static library esp-idf/lvgl_esp32_drivers/liblvgl_esp32_drivers.a
+[179/185] Linking C static library esp-idf/lv_examples_old/liblv_examples_old.a
+[180/185] Linking C static library esp-idf/lvgl/liblvgl.a
+[181/185] Linking C static library esp-idf/main/libmain.a
+[182/185] Generating ld/sections.ld
+[183/185] Linking CXX executable mqtt_tcp.elf
+[184/185] Generating binary image from built executable
+esptool.py v4.5.dev0
+Creating esp32 image...
+Merged 25 ELF sections
+Successfully created esp32 image.
+Generated /home/martin/esp/projekti/iot-air-quality-monitor/build/mqtt_tcp.bin
+[185/185] cd /home/martin/esp/projekti/iot-air-quality-monitor/build/esp-idf/esptool_py && /home/martin/.espressif/python_env/idf5.1_py3.10_env/bin/python /home/martin/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/martin/esp/projekti/iot-air-quality-monitor/build/partition_table/partition-table.bin /home/martin/esp/projekti/iot-air-quality-monitor/build/mqtt_tcp.bin
+mqtt_tcp.bin binary size 0x1142a0 bytes. Smallest app partition is 0x177000 bytes. 0x62d60 bytes (26%) free.

@@ -18,5 +18,6 @@
         "dht22.h": "c",
         "string.h": "c",
         "random": "c"
-    }
+    },
+    "idf.adapterTargetName": "esp32"
 }

@@ -1,9 +1,7 @@
 #include "mqtt_driver_utils.h"
 
-int g_FLAG = 0;
 QueueHandle_t queue;
 mqtt_connection_status mqtt_status;
-
 
 void log_error_if_nonzero(const char *message, int error_code)
 {
@@ -70,6 +68,12 @@ void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_t event
         break;
     case MQTT_EVENT_DATA:
         ESP_LOGI(TAG_MQTT, "MQTT_EVENT_DATA");
+        esp_mqtt_event_t tmp;
+        tmp.data_len = event->data_len;
+        tmp.data = event->data;
+        tmp.topic = event->topic;
+        tmp.topic_len = event->topic_len;
+        xQueueSend(queue, &tmp, portMAX_DELAY);
         break;
     case MQTT_EVENT_ERROR:
         ESP_LOGI(TAG_MQTT, "MQTT_EVENT_ERROR");
@@ -95,6 +99,8 @@ esp_mqtt_client_handle_t mqtt_ini_client(void)
 
     esp_mqtt_client_handle_t client = esp_mqtt_client_init(&mqtt_cfg);
     esp_mqtt_client_register_event(client, ESP_EVENT_ANY_ID, mqtt_event_handler, NULL);
+    queue = xQueueCreate(50, sizeof(esp_mqtt_event_t));
+
     return client;
 }
 
@@ -109,7 +115,6 @@ int mqtt_stop_client(esp_mqtt_client_handle_t client) // TODO: Error handling
     esp_mqtt_client_stop(client);
     return 1;
 }
-
 
 void mqtt_app_stop(esp_mqtt_client_handle_t client)
 {

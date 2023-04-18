@@ -1,0 +1,119 @@
+[1/10] Performing build step for 'bootloader'
+[1/1] cd /home/martin/esp/projekti/iot-air-quality-monitor/build/bootloader/esp-idf/esptool_py && /home/martin/.espressif/python_env/idf5.1_py3.10_env/bin/python /home/martin/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/martin/esp/projekti/iot-air-quality-monitor/build/bootloader/bootloader.bin
+Bootloader binary size 0x6720 bytes. 0x8e0 bytes (8%) free.
+[2/8] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/measurement_collection.c.obj
+/home/martin/esp/projekti/iot-air-quality-monitor/main/measurement_collection.c: In function 'get_measurements':
+/home/martin/esp/projekti/iot-air-quality-monitor/main/measurement_collection.c:37:9: warning: unused variable 'ret' [-Wunused-variable]
+   37 |     int ret = readDHT();
+      |         ^~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/measurement_collection.c: In function 'T_mqtt_communication_task':
+/home/martin/esp/projekti/iot-air-quality-monitor/main/measurement_collection.c:98:10: warning: unused variable 'measurements_json_string' [-Wunused-variable]
+   98 |     char measurements_json_string[JSON_PACKET_SIZE];
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/martin/esp/projekti/iot-air-quality-monitor/main/measurement_collection.h:17,
+                 from /home/martin/esp/projekti/iot-air-quality-monitor/main/measurement_collection.c:1:
+/home/martin/esp/projekti/iot-air-quality-monitor/main/measurement_collection.c: At top level:
+/home/martin/esp/projekti/iot-air-quality-monitor/main/mhz19.h:32:13: warning: 'mhz19_send_command' declared 'static' but never defined [-Wunused-function]
+   32 | static bool mhz19_send_command(const uint8_t *arg_cmd);
+      |             ^~~~~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/mhz19.h:33:16: warning: 'mhz19_calculate_checksum' declared 'static' but never defined [-Wunused-function]
+   33 | static uint8_t mhz19_calculate_checksum(const uint8_t* packet);
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/martin/esp/projekti/iot-air-quality-monitor/main/measurement_collection.h:20,
+                 from /home/martin/esp/projekti/iot-air-quality-monitor/main/measurement_collection.c:1:
+/home/martin/esp/projekti/iot-air-quality-monitor/main/wifi_driver_utils.h:35:13: warning: 'print_auth_mode' declared 'static' but never defined [-Wunused-function]
+   35 | static void print_auth_mode(int authmode);
+      |             ^~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/wifi_driver_utils.h:36:13: warning: 'print_cipher_type' declared 'static' but never defined [-Wunused-function]
+   36 | static void print_cipher_type(int pairwise_cipher, int group_cipher);
+      |             ^~~~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/wifi_driver_utils.h:34:20: warning: 'TAG_WIFI' defined but not used [-Wunused-variable]
+   34 | static const char *TAG_WIFI = "scan";
+      |                    ^~~~~~~~
+[3/8] Linking C static library esp-idf/main/libmain.a
+[4/8] Generating ld/sections.ld
+[5/8] Linking CXX executable mqtt_tcp.elf
+[6/8] Generating binary image from built executable
+esptool.py v4.5.dev0
+Creating esp32 image...
+Merged 25 ELF sections
+Successfully created esp32 image.
+Generated /home/martin/esp/projekti/iot-air-quality-monitor/build/mqtt_tcp.bin
+[7/8] cd /home/martin/esp/projekti/iot-air-quality-monitor/build/esp-idf/esptool_py && /home/martin/.espressif/python_env/idf5.1_py3.10_env/bin/python /home/martin/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/martin/esp/projekti/iot-air-quality-monitor/build/partition_table/partition-table.bin /home/martin/esp/projekti/iot-air-quality-monitor/build/mqtt_tcp.bin
+mqtt_tcp.bin binary size 0x10cf80 bytes. Smallest app partition is 0x177000 bytes. 0x6a080 bytes (28%) free.
+[7/8] cd /home/martin/esp/esp-idf/components/esptool_py && /usr/bin/cmake -D IDF_PATH=/home/martin/esp/esp-idf -D "SERIAL_TOOL=/home/martin/.espressif/python_env/idf5.1_py3.10_env/bin/python;;/home/martin/esp/esp-idf/components/esptool_py/esptool/esptool.py;--chip;esp32" -D "SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args" -D WORKING_DIRECTORY=/home/martin/esp/projekti/iot-air-quality-monitor/build -P /home/martin/esp/esp-idf/components/esptool_py/run_serial_tool.cmake
+esptool esp32 -p /dev/ttyUSB0 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 40m --flash_size 2MB 0x1000 bootloader/bootloader.bin 0x10000 mqtt_tcp.bin 0x8000 partition_table/partition-table.bin
+esptool.py v4.5.dev0
+Serial port /dev/ttyUSB0
+Connecting........................
+Chip is ESP32-D0WDQ6 (revision v1.0)
+Features: WiFi, BT, Dual Core, 240MHz, VRef calibration in efuse, Coding Scheme None
+Crystal is 40MHz
+MAC: 24:0a:c4:59:6d:74
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00001000 to 0x00007fff...
+Flash will be erased from 0x00010000 to 0x0011cfff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+Compressed 26400 bytes to 16475...
+Writing at 0x00001000... (50 %)
+Writing at 0x000076ab... (100 %)
+Wrote 26400 bytes (16475 compressed) at 0x00001000 in 1.3 seconds (effective 159.4 kbit/s)...
+Hash of data verified.
+Compressed 1101696 bytes to 696021...
+Writing at 0x00010000... (2 %)
+Writing at 0x00019321... (4 %)
+Writing at 0x00025f5c... (6 %)
+Writing at 0x0002b691... (9 %)
+Writing at 0x0003282e... (11 %)
+Writing at 0x0003ef16... (13 %)
+Writing at 0x00045448... (16 %)
+Writing at 0x0004b43b... (18 %)
+Writing at 0x000511be... (20 %)
+Writing at 0x00058542... (23 %)
+Writing at 0x0005e54f... (25 %)
+Writing at 0x00064212... (27 %)
+Writing at 0x0006a278... (30 %)
+Writing at 0x00070633... (32 %)
+Writing at 0x0007630e... (34 %)
+Writing at 0x0007c319... (37 %)
+Writing at 0x00081be2... (39 %)
+Writing at 0x000876b4... (41 %)
+Writing at 0x0008dafe... (44 %)
+Writing at 0x000937b6... (46 %)
+Writing at 0x00098fac... (48 %)
+Writing at 0x0009e1fa... (51 %)
+Writing at 0x000a386e... (53 %)
+Writing at 0x000a8b97... (55 %)
+Writing at 0x000ae3d7... (58 %)
+Writing at 0x000b39ca... (60 %)
+Writing at 0x000b9192... (62 %)
+Writing at 0x000bf069... (65 %)
+Writing at 0x000c47ec... (67 %)
+Writing at 0x000c9f95... (69 %)
+Writing at 0x000cf7e7... (72 %)
+Writing at 0x000d512a... (74 %)
+Writing at 0x000da8c2... (76 %)
+Writing at 0x000e0444... (79 %)
+Writing at 0x000e5eb5... (81 %)
+Writing at 0x000eeaf2... (83 %)
+Writing at 0x000f713e... (86 %)
+Writing at 0x000fd32e... (88 %)
+Writing at 0x0010383f... (90 %)
+Writing at 0x001098ca... (93 %)
+Writing at 0x0010f22b... (95 %)
+Writing at 0x001151bf... (97 %)
+Writing at 0x0011a380... (100 %)
+Wrote 1101696 bytes (696021 compressed) at 0x00010000 in 36.4 seconds (effective 241.9 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 105...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (105 compressed) at 0x00008000 in 0.1 seconds (effective 414.9 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...

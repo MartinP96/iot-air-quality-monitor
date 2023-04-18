@@ -4,6 +4,9 @@
 QueueHandle_t measurement_queue;
 QueueHandle_t measurement_queue_mqtt;
 
+/* Local variables */
+esp_mqtt_client_handle_t mqtt_client;
+
 /**
  * Desc: Initialize used sensors
  * 
@@ -57,8 +60,7 @@ void T_measurement_task(void *param)
     {   
         get_measurements(&data_packet);
         xQueueSend(measurement_queue, &data_packet, portMAX_DELAY);
-        //printf("index: %d \n temp: %f \n hum: %f \n co2: %d \n", data_packet.index, data_packet.temperature, data_packet.humidity, data_packet.co2);
-
+        
         if (mqtt_status.mqtt_connected_status)
         {
             xQueueSend(measurement_queue_mqtt, &data_packet, portMAX_DELAY);
@@ -77,21 +79,20 @@ void T_measurement_task(void *param)
 // MQTT Communication task
 void T_mqtt_communication_task(void *pvParameter)
 {
-    esp_mqtt_client_handle_t mqtt_client;
-
     unsigned long sys_time = 0;
     unsigned long hearth_beat_time = 0;
     unsigned long mqtt_hb_counter = 0;
     char hb_str[10];
     int state = 0;
 
-    measurement_packet_st received_value;
+    measurement_packet_st received_measurements;
+    esp_mqtt_event_t received_value;
+
     mqtt_client = mqtt_ini_client();
 
     // JSON packet variables
     char *json_packet_str;
     cJSON *json_packet, *timestamp, *co2, *temp, *humidity;
-    char measurements_json_string[JSON_PACKET_SIZE];
 
     while(1)
     {
@@ -113,6 +114,10 @@ void T_mqtt_communication_task(void *pvParameter)
                 // Start MQTT publish measurements task
             case 1:
                 if (mqtt_status.mqtt_connected_status) {
+
+                    // Subscribe to topic
+                    esp_mqtt_client_subscribe(mqtt_client, "porenta/martin_room/air_quality/data/parameters",0);
+
                     state = 2;
                 }
                 break;
@@ -129,27 +134,30 @@ void T_mqtt_communication_task(void *pvParameter)
                 }
 
                 // Publish measurements
+                if (xQueueReceive(measurement_queue_mqtt, &received_measurements, 0 ) == pdPASS){
 
-                if (xQueueReceive(measurement_queue_mqtt, &received_value, 0 ) == pdPASS){
-                    //esp_mqtt_client_publish(param, MEASUREMENTS_TOPIC, received_value, 0, 1, 0);
-                    //printf("index: %d \n temp: %f \n hum: %f \n co2: %d \n", received_value.index, received_value.temperature, received_value.humidity, received_value.co2);
-
+                    printf("index: %d \n temp: %f \n hum: %f \n co2: %d \n", received_measurements.index, received_measurements.temperature, received_measurements.humidity, received_measurements.co2);
                     // Build JSON packet
                     json_packet = cJSON_CreateObject();
                     timestamp = cJSON_CreateString("test");
-                    co2 = cJSON_CreateNumber(received_value.co2);
-                    temp = cJSON_CreateNumber(received_value.temperature);
-                    humidity = cJSON_CreateNumber(received_value.humidity);
+                    co2 = cJSON_CreateNumber(received_measurements.co2);
+                    temp = cJSON_CreateNumber(received_measurements.temperature);
+                    humidity = cJSON_CreateNumber(received_measurements.humidity);
                     cJSON_AddItemToObject(json_packet, "timestamp", timestamp);
                     cJSON_AddItemToObject(json_packet, "co2", co2);
                     cJSON_AddItemToObject(json_packet, "temperature", temp);
                     cJSON_AddItemToObject(json_packet, "humidity", humidity);
                     json_packet_str = cJSON_Print(json_packet);
-                    //strcpy(measurements_json_string, json_packet_str);
                     esp_mqtt_client_publish(mqtt_client, MEASUREMENTS_TOPIC, json_packet_str, 0, 1, 0);
 
                     free(json_packet_str);
                     cJSON_Delete(json_packet);
+                }
+                
+                if (xQueueReceive(queue, &received_value, 0 ) == pdPASS){
+                    printf("%d\n", received_value.data_len);
+                    printf("%s\n", received_value.data);
+                    printf("%s\n", received_value.topic);
                 }
 
                 if(!wifi_status.wifi_connected_status || !mqtt_status.mqtt_connected_status) {
@@ -164,4 +172,32 @@ void T_mqtt_communication_task(void *pvParameter)
         vTaskDelay(100/portTICK_PERIOD_MS);
     }
     vTaskDelete(NULL); // Brisemo task po koncu izvajanja
+}
+
+
+// TODO: Check why i get stack overflow error
+void build_json_packet(measurement_packet_st* measurements_in, char** json_string)
+{
+    cJSON *json_packet, *timestamp, *co2, *temp, *humidity;
+    printf("index: %d \n temp: %f \n hum: %f \n co2: %d \n", measurements_in->index, measurements_in->temperature, measurements_in->humidity, measurements_in->co2);
+
+    // Build JSON packet
+    json_packet = cJSON_CreateObject();
+    timestamp = cJSON_CreateString("test");
+    co2 = cJSON_CreateNumber(measurements_in->co2);
+    temp = cJSON_CreateNumber(measurements_in->temperature);
+    humidity = cJSON_CreateNumber(measurements_in->humidity);
+
+    cJSON_AddItemToObject(json_packet, "timestamp", timestamp);
+    cJSON_AddItemToObject(json_packet, "co2", co2);
+    cJSON_AddItemToObject(json_packet, "temperature", temp);
+    cJSON_AddItemToObject(json_packet, "humidity", humidity);
+
+    //*json_string = cJSON_Print(json_packet);
+
+    cJSON_Delete(json_packet);
+    cJSON_Delete(timestamp);
+    cJSON_Delete(co2);
+    cJSON_Delete(temp);
+    cJSON_Delete(humidity);
 }

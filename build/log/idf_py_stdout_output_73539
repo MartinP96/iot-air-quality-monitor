@@ -1,0 +1,227 @@
+[1/13] Performing build step for 'bootloader'
+[1/1] cd /home/martin/esp/projekti/iot-air-quality-monitor/build/bootloader/esp-idf/esptool_py && /home/martin/.espressif/python_env/idf5.1_py3.10_env/bin/python /home/martin/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/martin/esp/projekti/iot-air-quality-monitor/build/bootloader/bootloader.bin
+Bootloader binary size 0x6720 bytes. 0x8e0 bytes (8%) free.
+[2/11] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/main_app.c.obj
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_app.c: In function 'app_main':
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_app.c:36:15: warning: unused variable 'ret' [-Wunused-variable]
+   36 |     esp_err_t ret = nvs_flash_init();
+      |               ^~~
+In file included from /home/martin/esp/projekti/iot-air-quality-monitor/main/measurement_collection.h:17,
+                 from /home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:22,
+                 from /home/martin/esp/projekti/iot-air-quality-monitor/main/main_app.c:30:
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_app.c: At top level:
+/home/martin/esp/projekti/iot-air-quality-monitor/main/mhz19.h:32:13: warning: 'mhz19_send_command' declared 'static' but never defined [-Wunused-function]
+   32 | static bool mhz19_send_command(const uint8_t *arg_cmd);
+      |             ^~~~~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/mhz19.h:33:16: warning: 'mhz19_calculate_checksum' declared 'static' but never defined [-Wunused-function]
+   33 | static uint8_t mhz19_calculate_checksum(const uint8_t* packet);
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/martin/esp/projekti/iot-air-quality-monitor/main/measurement_collection.h:20,
+                 from /home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:22,
+                 from /home/martin/esp/projekti/iot-air-quality-monitor/main/main_app.c:30:
+/home/martin/esp/projekti/iot-air-quality-monitor/main/wifi_driver_utils.h:35:13: warning: 'print_auth_mode' declared 'static' but never defined [-Wunused-function]
+   35 | static void print_auth_mode(int authmode);
+      |             ^~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/wifi_driver_utils.h:36:13: warning: 'print_cipher_type' declared 'static' but never defined [-Wunused-function]
+   36 | static void print_cipher_type(int pairwise_cipher, int group_cipher);
+      |             ^~~~~~~~~~~~~~~~~
+In file included from /home/martin/esp/projekti/iot-air-quality-monitor/main/main_app.c:30:
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:66:13: warning: 'Create_TAB1' declared 'static' but never defined [-Wunused-function]
+   66 | static void Create_TAB1(lv_obj_t *tab_ptr);
+      |             ^~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:68:13: warning: 'Create_TAB3' declared 'static' but never defined [-Wunused-function]
+   68 | static void Create_TAB3(lv_obj_t *tab_ptr);
+      |             ^~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:69:13: warning: 'gui_initialize' declared 'static' but never defined [-Wunused-function]
+   69 | static void gui_initialize(lv_color_t *buf1, lv_color_t *buf2);
+      |             ^~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:70:13: warning: 'lv_tick_task' declared 'static' but never defined [-Wunused-function]
+   70 | static void lv_tick_task(void *arg);
+      |             ^~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:71:13: warning: 'gui_create_gui' declared 'static' but never defined [-Wunused-function]
+   71 | void static gui_create_gui(void);
+      |             ^~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:72:13: warning: 'T02_01_wifi_scan_task' declared 'static' but never defined [-Wunused-function]
+   72 | static void T02_01_wifi_scan_task(void *pvParameter);
+      |             ^~~~~~~~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:73:13: warning: 'T_refresh_task' declared 'static' but never defined [-Wunused-function]
+   73 | static void T_refresh_task(void *pvParameter);
+      |             ^~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:76:13: warning: 'wifi_enable_switch_event_handler' declared 'static' but never defined [-Wunused-function]
+   76 | static void wifi_enable_switch_event_handler(lv_obj_t * obj, lv_event_t event);
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:77:13: warning: 'wifi_connection_select_event_handler' declared 'static' but never defined [-Wunused-function]
+   77 | static void wifi_connection_select_event_handler(lv_obj_t * obj_dropdown, lv_event_t event);
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:78:13: warning: 'wifi_keyboard_event_handler' declared 'static' but never defined [-Wunused-function]
+   78 | static void wifi_keyboard_event_handler(lv_obj_t * obj, lv_event_t event);
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/martin/esp/projekti/iot-air-quality-monitor/main/measurement_collection.h:20,
+                 from /home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:22,
+                 from /home/martin/esp/projekti/iot-air-quality-monitor/main/main_app.c:30:
+/home/martin/esp/projekti/iot-air-quality-monitor/main/wifi_driver_utils.h:34:20: warning: 'TAG_WIFI' defined but not used [-Wunused-variable]
+   34 | static const char *TAG_WIFI = "scan";
+      |                    ^~~~~~~~
+[3/11] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/measurement_collection.c.obj
+/home/martin/esp/projekti/iot-air-quality-monitor/main/measurement_collection.c: In function 'get_measurements':
+/home/martin/esp/projekti/iot-air-quality-monitor/main/measurement_collection.c:33:9: warning: unused variable 'ret' [-Wunused-variable]
+   33 |     int ret = readDHT();
+      |         ^~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/measurement_collection.c: In function 'T_mqtt_communication_task':
+/home/martin/esp/projekti/iot-air-quality-monitor/main/measurement_collection.c:94:10: warning: unused variable 'measurements_json_string' [-Wunused-variable]
+   94 |     char measurements_json_string[JSON_PACKET_SIZE];
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/martin/esp/projekti/iot-air-quality-monitor/main/measurement_collection.h:17,
+                 from /home/martin/esp/projekti/iot-air-quality-monitor/main/measurement_collection.c:1:
+/home/martin/esp/projekti/iot-air-quality-monitor/main/measurement_collection.c: At top level:
+/home/martin/esp/projekti/iot-air-quality-monitor/main/mhz19.h:32:13: warning: 'mhz19_send_command' declared 'static' but never defined [-Wunused-function]
+   32 | static bool mhz19_send_command(const uint8_t *arg_cmd);
+      |             ^~~~~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/mhz19.h:33:16: warning: 'mhz19_calculate_checksum' declared 'static' but never defined [-Wunused-function]
+   33 | static uint8_t mhz19_calculate_checksum(const uint8_t* packet);
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/martin/esp/projekti/iot-air-quality-monitor/main/measurement_collection.h:20,
+                 from /home/martin/esp/projekti/iot-air-quality-monitor/main/measurement_collection.c:1:
+/home/martin/esp/projekti/iot-air-quality-monitor/main/wifi_driver_utils.h:35:13: warning: 'print_auth_mode' declared 'static' but never defined [-Wunused-function]
+   35 | static void print_auth_mode(int authmode);
+      |             ^~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/wifi_driver_utils.h:36:13: warning: 'print_cipher_type' declared 'static' but never defined [-Wunused-function]
+   36 | static void print_cipher_type(int pairwise_cipher, int group_cipher);
+      |             ^~~~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/wifi_driver_utils.h:34:20: warning: 'TAG_WIFI' defined but not used [-Wunused-variable]
+   34 | static const char *TAG_WIFI = "scan";
+      |                    ^~~~~~~~
+[4/11] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/mqtt_driver_utils.c.obj
+/home/martin/esp/projekti/iot-air-quality-monitor/main/mqtt_driver_utils.c: In function 'mqtt_event_handler':
+/home/martin/esp/projekti/iot-air-quality-monitor/main/mqtt_driver_utils.c:52:9: warning: unused variable 'msg_id' [-Wunused-variable]
+   52 |     int msg_id;
+      |         ^~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/mqtt_driver_utils.c:51:30: warning: unused variable 'client' [-Wunused-variable]
+   51 |     esp_mqtt_client_handle_t client = event->client;
+      |                              ^~~~~~
+[5/11] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/main_gui.c.obj
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.c: In function 'T00_user_interface_task':
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.c:59:27: warning: unused variable 'received_value' [-Wunused-variable]
+   59 |     measurement_packet_st received_value;
+      |                           ^~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.c: In function 'gui_create_gui':
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.c:193:20: warning: unused variable 'disp_size' [-Wunused-variable]
+  193 |     lv_disp_size_t disp_size = lv_disp_get_size_category(NULL);
+      |                    ^~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.c: In function 'Create_TAB3':
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.c:304:20: warning: unused variable 'disp_size' [-Wunused-variable]
+  304 |     lv_disp_size_t disp_size = lv_disp_get_size_category(NULL);
+      |                    ^~~~~~~~~
+In file included from /home/martin/esp/projekti/iot-air-quality-monitor/main/measurement_collection.h:17,
+                 from /home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:22,
+                 from /home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.c:1:
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.c: At top level:
+/home/martin/esp/projekti/iot-air-quality-monitor/main/mhz19.h:32:13: warning: 'mhz19_send_command' declared 'static' but never defined [-Wunused-function]
+   32 | static bool mhz19_send_command(const uint8_t *arg_cmd);
+      |             ^~~~~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/mhz19.h:33:16: warning: 'mhz19_calculate_checksum' declared 'static' but never defined [-Wunused-function]
+   33 | static uint8_t mhz19_calculate_checksum(const uint8_t* packet);
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/martin/esp/projekti/iot-air-quality-monitor/main/measurement_collection.h:20,
+                 from /home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.h:22,
+                 from /home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.c:1:
+/home/martin/esp/projekti/iot-air-quality-monitor/main/wifi_driver_utils.h:35:13: warning: 'print_auth_mode' declared 'static' but never defined [-Wunused-function]
+   35 | static void print_auth_mode(int authmode);
+      |             ^~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/wifi_driver_utils.h:36:13: warning: 'print_cipher_type' declared 'static' but never defined [-Wunused-function]
+   36 | static void print_cipher_type(int pairwise_cipher, int group_cipher);
+      |             ^~~~~~~~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.c:254:13: warning: 'Create_TAB2' defined but not used [-Wunused-function]
+  254 | static void Create_TAB2(lv_obj_t *tab_ptr)
+      |             ^~~~~~~~~~~
+/home/martin/esp/projekti/iot-air-quality-monitor/main/main_gui.c:33:18: warning: 'sampling_time_text' defined but not used [-Wunused-variable]
+   33 | static lv_obj_t* sampling_time_text;
+      |                  ^~~~~~~~~~~~~~~~~~
+[6/11] Linking C static library esp-idf/main/libmain.a
+[7/11] Generating ld/sections.ld
+[8/11] Linking CXX executable mqtt_tcp.elf
+[9/11] Generating binary image from built executable
+esptool.py v4.5.dev0
+Creating esp32 image...
+Merged 25 ELF sections
+Successfully created esp32 image.
+Generated /home/martin/esp/projekti/iot-air-quality-monitor/build/mqtt_tcp.bin
+[10/11] cd /home/martin/esp/projekti/iot-air-quality-monitor/build/esp-idf/esptool_py && /home/martin/.espressif/python_env/idf5.1_py3.10_env/bin/python /home/martin/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/martin/esp/projekti/iot-air-quality-monitor/build/partition_table/partition-table.bin /home/martin/esp/projekti/iot-air-quality-monitor/build/mqtt_tcp.bin
+mqtt_tcp.bin binary size 0x113e60 bytes. Smallest app partition is 0x177000 bytes. 0x631a0 bytes (26%) free.
+[10/11] cd /home/martin/esp/esp-idf/components/esptool_py && /usr/bin/cmake -D IDF_PATH=/home/martin/esp/esp-idf -D "SERIAL_TOOL=/home/martin/.espressif/python_env/idf5.1_py3.10_env/bin/python;;/home/martin/esp/esp-idf/components/esptool_py/esptool/esptool.py;--chip;esp32" -D "SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args" -D WORKING_DIRECTORY=/home/martin/esp/projekti/iot-air-quality-monitor/build -P /home/martin/esp/esp-idf/components/esptool_py/run_serial_tool.cmake
+esptool esp32 -p /dev/ttyUSB0 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 40m --flash_size 2MB 0x1000 bootloader/bootloader.bin 0x10000 mqtt_tcp.bin 0x8000 partition_table/partition-table.bin
+esptool.py v4.5.dev0
+Serial port /dev/ttyUSB0
+Connecting..............
+Chip is ESP32-D0WDQ6 (revision v1.0)
+Features: WiFi, BT, Dual Core, 240MHz, VRef calibration in efuse, Coding Scheme None
+Crystal is 40MHz
+MAC: 24:0a:c4:59:6d:74
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00001000 to 0x00007fff...
+Flash will be erased from 0x00010000 to 0x00123fff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+Compressed 26400 bytes to 16475...
+Writing at 0x00001000... (50 %)
+Writing at 0x000076ab... (100 %)
+Wrote 26400 bytes (16475 compressed) at 0x00001000 in 1.4 seconds (effective 152.1 kbit/s)...
+Hash of data verified.
+Compressed 1130080 bytes to 714133...
+Writing at 0x00010000... (2 %)
+Writing at 0x0001933d... (4 %)
+Writing at 0x00025ef1... (6 %)
+Writing at 0x0002b6c7... (9 %)
+Writing at 0x0003280a... (11 %)
+Writing at 0x0003ec33... (13 %)
+Writing at 0x000453bb... (15 %)
+Writing at 0x0004b343... (18 %)
+Writing at 0x000510f5... (20 %)
+Writing at 0x000583e7... (22 %)
+Writing at 0x0005e444... (25 %)
+Writing at 0x00064114... (27 %)
+Writing at 0x0006a1a4... (29 %)
+Writing at 0x000704c2... (31 %)
+Writing at 0x0007624f... (34 %)
+Writing at 0x0007c1b4... (36 %)
+Writing at 0x00081b4c... (38 %)
+Writing at 0x00087598... (40 %)
+Writing at 0x0008db99... (43 %)
+Writing at 0x000936a9... (45 %)
+Writing at 0x00098f6e... (47 %)
+Writing at 0x0009e291... (50 %)
+Writing at 0x000a3857... (52 %)
+Writing at 0x000a8ce0... (54 %)
+Writing at 0x000ae1c9... (56 %)
+Writing at 0x000b3969... (59 %)
+Writing at 0x000b9245... (61 %)
+Writing at 0x000bf15b... (63 %)
+Writing at 0x000c4821... (65 %)
+Writing at 0x000ca003... (68 %)
+Writing at 0x000cf72a... (70 %)
+Writing at 0x000d5163... (72 %)
+Writing at 0x000da8cd... (75 %)
+Writing at 0x000e0468... (77 %)
+Writing at 0x000e5f41... (79 %)
+Writing at 0x000ec2a0... (81 %)
+Writing at 0x000f45e8... (84 %)
+Writing at 0x000fd0e3... (86 %)
+Writing at 0x00103541... (88 %)
+Writing at 0x00109e18... (90 %)
+Writing at 0x0010fe48... (93 %)
+Writing at 0x00115841... (95 %)
+Writing at 0x0011b465... (97 %)
+Writing at 0x001209a0... (100 %)
+Wrote 1130080 bytes (714133 compressed) at 0x00010000 in 37.9 seconds (effective 238.5 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 105...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (105 compressed) at 0x00008000 in 0.1 seconds (effective 313.8 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...

@@ -24,7 +24,7 @@
  *      DEFINES
  *********************/
 
-#define SAMPLING_TIME 1000 //in ms
+#define SAMPLING_TIME 5000 //in ms
 #define MHZ19_TX_PIN 17
 #define MHZ19_RX_PIN 16
 #define DHT22_INPUT_PIN 32
@@ -53,5 +53,8 @@ void T_measurement_task(void *param);
 void T_mqtt_communication_task(void *pvParameter);
 void get_measurements(measurement_packet_st *data_packet);
 void init_sensors(void);
+void T_mqtt_publish_task(void *pvParameter);
+void T_mqtt_subscribe_task(void *pvParameter);
+void build_json_packet(measurement_packet_st* measurements_in, char **json_string);
 
 #endif
